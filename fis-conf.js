@@ -144,6 +144,7 @@ fis.media('pre')
 // 线上
 fis.media('build')
     .match('*.html', {
+      // npm install -g fis3-parser-html-replaceurl
       parser: fis.plugin('html-replaceurl', {
         newWords:domain_url.build,
         removeComments:true, //是否删除注释
