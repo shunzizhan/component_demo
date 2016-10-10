@@ -1,0 +1,37 @@
+/*
+    link.less 链接
+ */
+
+//link
+a{
+  text-decoration: none;
+  color: @font-color;
+  .transition(color,.2s);
+  &:hover {
+    text-decoration: none;
+  }
+  &.href{
+    text-decoration: underline;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+.link-default{
+  color:@color-default;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+.link-gray{
+  color:@font-light;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+.link-main{
+  color:@color-main;
+  &:hover{
+    text-decoration: underline;
+  }
+}

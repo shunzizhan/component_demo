@@ -1,0 +1,11 @@
+//字体
+.font(@size){
+  font-size: unit(@size,px);
+  font-size: unit(@size/10,rem);
+}
+//省略号
+.ellipsis(){display:block;word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+/*强制换行*/
+.break-word(){word-wrap:break-word;word-break:break-all;}
+/*禁止换行*/
+.keep-all(){word-break:keep-all;white-space:nowrap;}

@@ -1,0 +1,55 @@
+/*
+    border.less  边框&分隔线&圆角&阴影
+ */
+.border{
+  border:1px solid @color-gray;
+  &.only-left{
+    border:1px solid transparent;
+    border-left: @color-gray;
+  }
+  &.only-right{
+    border:1px solid transparent;
+    border-right: @color-gray;
+  }
+  &.only-top{
+    border:1px solid transparent;
+    border-top: @color-gray;
+  }
+  &.only-bottom{
+    border:1px solid transparent;
+    border-bottom: @color-gray;
+  }
+}
+hr{
+  border:none;
+  &.hr-solid{
+      border-top:1px solid @color-gray;
+      display: block;
+      width: 100%;
+      height: 0;
+  };
+  &.hr-dotted{
+      border-top:1px dotted @color-gray;
+      display: block;
+      width: 100%;
+      height: 0;
+  };
+  &.hr-dashed{
+      border-top:1px dashed @color-gray;
+      display: block;
+      width: 100%;
+      height: 0;
+  };
+}
+.radius{
+  .radius(4,4,4,4);
+  &.radius-lg{
+    .radius(15,15,15,15)
+  }
+  &.radius-full{
+    .radius(1000,1000,1000,1000);
+  }
+}
+.shadow{
+  .shadow(0,0,6,@color-gray);
+}
