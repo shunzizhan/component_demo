@@ -28,6 +28,7 @@
     - **less**存放基础的通用样式文件，其中包含`core/variables.less`,编译至`public/css/`
     - **js**存放通用的js文件，以及对外提供的js文件，最后编译至`public/js/`
     - **img** 通用的图片文件，包含但不限于`public/less/`中使用的图片，最后生成至`public/images/`
+    - **tpl** 通用的模块，包含但不限于`pages/XXX/xxx.html`中`import`
     
 > **说明**
  -  proj_x.x.x为`项目名称_版本号`,名称和版本号都在fis-conf.js中配置，每一次升级，只需修改版本号`fis.set('version', '1.0.0')`即可，程序会自动打包到对应的版本目录中，对以前的版本不会破坏，以保证在发布失败后，能迅速回滚到指定的版本
