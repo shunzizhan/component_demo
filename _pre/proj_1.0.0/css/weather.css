@@ -1,9 +1,0 @@
-/*
-  variables.less  公共参数
-*/
-/*提示文字颜色*/
-/*账号设置导航栏背景色*/
-.main {
-  color: #007dd4;
-  background: url(/proj_1.0.0/images/weather/c13.gif);
-}

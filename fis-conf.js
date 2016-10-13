@@ -7,7 +7,7 @@ fis.set('domain_test', ''); //开发环境静态资源
 // 预发布环境
 fis.set('domain_pre', '');
 // 线上环境
-fis.set('domain_build', '');
+fis.set('domain_build', 'http://img3.fdc.com.cn');
 
 // 定义不同域的url
 var domain_url = {
@@ -58,9 +58,17 @@ fis
   })
   .match(/^\/public\/less\/(\w+)\.less$/i, {
     parser: fis.plugin('less'),
+    // rExt: '.css'
     rExt: '.css',
+    useSprite: true,
+    optimizer: fis.plugin('clean-css'),
     release: '/public/css/$1'
   })
+  // .match(/^\/public\/css\/(\w+)\.css$/i, {
+  //   useSprite: true,
+  //   optimizer: fis.plugin('clean-css')
+  //   // release: '/public/css/$1?v=${version}'
+  // })
   .match(/^\/public\/js\/(.*)$/i, {
     release: '/public/js/$1'
   })
@@ -74,6 +82,9 @@ fis
   .match(/^\/pages\/\w+\/(\w+)\.less$/i, {
     parser: fis.plugin('less'),
     rExt: '.css',
+    useHash: true,
+    useSprite: true,
+    optimizer: fis.plugin('clean-css'),
     release: '/${name}_${version}/css/$1'
   })
   // js
@@ -146,13 +157,16 @@ fis.media('pre')
 
 // 线上
 fis.media('build')
+    .match("*", {
+        domain: "${domain_build}",
+    })
     .match('*.html', {
       // npm install -g fis3-parser-html-replaceurl
       parser: fis.plugin('html-replaceurl', {
         newWords:domain_url.build,
         removeComments:true, //是否删除注释
         ignoreWords:['ko'], //删除注释时，需要过滤的字眼，主要排除模板引擎自带的注释
-        minifier:true //是否压缩
+        minifier:false //是否压缩
       })
     });
     // .match('*', {
