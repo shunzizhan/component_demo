@@ -1,7 +1,7 @@
 ## 模块化模板
 @[模块化|资源定向|正则|]
 
-本文参照于 http://www.infoq.com/cn/articles/talk-front-end-integrated-solution-part2/， 依赖与fis3,涉及文件的压缩、md5、资源重定向等
+本文参照于 [前端开发体系建设日记](http://www.infoq.com/cn/articles/talk-front-end-integrated-solution-part2/)， 依赖与fis3,涉及文件的压缩、md5、资源重定向等
 #### 安装html处理插件
 > npm install -g `fis3-parser-html-replaceurl`
 
