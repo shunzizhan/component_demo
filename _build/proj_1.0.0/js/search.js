@@ -1,1 +1,1 @@
-var jquery=require("/pages/weather/weather.js"),b=require("b.js");
+var weather=require("/pages/weather/weather.js"),b=require("b.js");

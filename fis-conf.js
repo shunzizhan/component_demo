@@ -46,6 +46,47 @@ fis.set('project.ignore', [
     "fis-conf.js"
 ]);
 
+
+//postpackager插件接受4个参数，
+//ret包含了所有项目资源以及资源表、依赖树，其中包括：
+//   ret.src: 所有项目文件对象
+//   ret.pkg: 所有项目打包生成的额外文件
+//   reg.map: 资源表结构化数据
+//其他参数暂时不用管
+var createFrameworkConfig = function(ret, conf, settings, opt){
+    var map = {};
+    map.deps = {};
+    fis.util.map(ret.src, function(subpath, file){
+      if(file.subdirname =="/pages/search"){
+        console.log("/////////////////////////////////");
+        console.log(file.id);
+        console.log("????????????")
+        // console.log(file);
+        console.log(file.requires);
+        console.log("/////////////////////////////////");
+      }
+      if(file.requires && file.requires.length){
+          map.deps[file.id] = file.requires;
+      }
+    });
+    //把配置文件序列化
+    var stringify = JSON.stringify(map, null, opt.optimize ? null : 4);
+
+    //再次遍历文件，找到isViews标记的文件
+    //替换里面的__FRAMEWORK_CONFIG__钩子
+    fis.util.map(ret.src, function(subpath, file){
+        //有isViews标记，并且是js或者html类文件，才需要做替换
+        if(file.isViews && (file.isJsLike || file.isHtmlLike)){
+            var content = file.getContent();
+            //替换文件内容
+            content = content.replace(/\b__FRAMEWORK_CONFIG__\b/g, stringify);
+            file.setContent(content);
+        }
+    });
+};
+//在modules.postpackager阶段处理依赖树，调用插件函数
+fis.config.set('modules.postpackager', [createFrameworkConfig]);
+
 fis
   // ********静态资源**********************
   // **包含第三方库文件，通用的js/css/img**
@@ -200,42 +241,3 @@ fis.media('build')
     //   ]
     // })
 
-//postpackager插件接受4个参数，
-//ret包含了所有项目资源以及资源表、依赖树，其中包括：
-//   ret.src: 所有项目文件对象
-//   ret.pkg: 所有项目打包生成的额外文件
-//   reg.map: 资源表结构化数据
-//其他参数暂时不用管
-var createFrameworkConfig = function(ret, conf, settings, opt){
-    var map = {};
-    map.deps = {};
-    fis.util.map(ret.src, function(subpath, file){
-      if(file.subdirname =="/pages/search"){
-        console.log("/////////////////////////////////");
-        console.log(file.id);
-        console.log("????????????")
-        // console.log(file);
-        console.log(file.requires);
-        console.log("/////////////////////////////////");
-      }
-      if(file.requires && file.requires.length){
-          map.deps[file.id] = file.requires;
-      }
-    });
-    //把配置文件序列化
-    var stringify = JSON.stringify(map, null, opt.optimize ? null : 4);
-
-    //再次遍历文件，找到isViews标记的文件
-    //替换里面的__FRAMEWORK_CONFIG__钩子
-    fis.util.map(ret.src, function(subpath, file){
-        //有isViews标记，并且是js或者html类文件，才需要做替换
-        if(file.isViews && (file.isJsLike || file.isHtmlLike)){
-            var content = file.getContent();
-            //替换文件内容
-            content = content.replace(/\b__FRAMEWORK_CONFIG__\b/g, stringify);
-            file.setContent(content);
-        }
-    });
-};
-//在modules.postpackager阶段处理依赖树，调用插件函数
-fis.config.set('modules.postpackager', [createFrameworkConfig]);
