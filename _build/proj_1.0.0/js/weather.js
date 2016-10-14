@@ -1,0 +1,1 @@
+$(".btn").click(function(){alert("天气")}),alert("天气");

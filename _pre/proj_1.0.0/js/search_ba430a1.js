@@ -1,1 +1,0 @@
-$(".btn").click(function(){alert("搜索")});
