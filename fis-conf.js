@@ -1,7 +1,7 @@
 
 //项目配置，将name、version独立配置，统管全局
 fis.set('name', 'proj');
-fis.set('version', '1.0.0');
+fis.set('version', '1.0.1');
 // 测试环境
 fis.set('domain_test', ''); //开发环境静态资源
 // 预发布环境
