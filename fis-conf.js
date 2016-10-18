@@ -1,7 +1,7 @@
 
 //项目配置，将name、version独立配置，统管全局
-fis.set('name', 'proj');
-fis.set('version', '1.0.1');
+fis.set('name', 'house');
+fis.set('version', '1.0.2');
 // 测试环境
 fis.set('domain_test', ''); //开发环境静态资源
 // 预发布环境
@@ -28,20 +28,23 @@ var domain_url = {
 }
 
 // 过滤指定的文件类型
-fis.set('project.files', [
-  '*.css',
-  '*.js',
-  '*.html',
-  '*.{png,jpg,gif}'
-]);
+// fis.set('project.files', [
+
+//   '*.css',
+//   '*.js',
+//   '*.html',
+//   '*.{png,jpg,gif}'
+// ]);
 // 排除指定目录和文件
 fis.set('project.ignore', [
     '.git/**',
     '.svn/**',
-    'node_modules/**',
-    '*.cmd',
-    '_pre/**',
-    '_build/**',
+    '{node_modules,_pre,_build,components}/**',
+    
+    // '_pre/**',
+    // '_build/**',
+    // 'components/**',
+    '*.{cmd,md,zip,rar}',
     "package.json",
     "fis-conf.js"
 ]);
@@ -177,6 +180,14 @@ fis.media('test')
     .match("*", {
         domain: "${domain_test}",
     })
+     // Mock 假数据模拟 
+    // https://github.com/fex-team/fis3/blob/dev/doc/docs/node-mock.md
+    .match('/_mock/**', {
+      release: '$0'
+    })
+    .match('/_mock/server.conf', {
+      release: '/config/server.conf'
+    });
 
 // 预发布
 fis.media('pre')
