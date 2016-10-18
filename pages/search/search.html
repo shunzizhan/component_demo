@@ -8,16 +8,15 @@
     <button class="btn btn-submit">提交</button>
    <!--  <link rel="import" href="/public/tpl/a.tpl?__inline"> -->
   </body>
-  <script src="/libs/scrat/scrat.js"></script>
-  <!--<script src="/libs/jquery/dist/jquery.min.js"></script>
+  <!--<script src="/libs/scrat/scrat.js"></script>
+  <script src="/libs/jquery/dist/jquery.min.js"></script>
   <script src="/public/js/a.js"></script>
   <script src="search.js"></script>-->
   <script type="text/javascript">
-      require.config(__FRAMEWORK_CONFIG__);
+      require.config("__FRAMEWORK_CONFIG__");
       
-      require.async(['search.js'], function(search){
+      require.async(['/proj_1.0.1/js/search.js'], function(search){
           //todo
           alert(1133);
       });
   </script>
-</html>
