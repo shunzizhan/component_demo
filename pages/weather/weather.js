@@ -5,27 +5,29 @@ $('.btn').click(function(event) {
     url: '/api/user',
     type: 'get',
     dataType: 'json',
-    // data: {param1: 'value1'},
+    data: {method:"abcd",a: '1',b:"2",c:"afjfjsfjsk"},
   })
   .done(function(res) {
     alert(res.data.uname);
+    var str = __uri("img/c13.gif");
+    $('.main').css({backgroundImage:'url('+str+')'});
     console.log("success");
   })
   .fail(function() {
     console.log("error");
   })
   .always(function() {
-    console.log("complete");
+    console.log("complete"); 
   });
   
 });
 $("#mock").click(function(event) {
   /* Act on the event */
   $.ajax({
-    url: '/api/mock',
+    url: '/api/user',
     type: 'get',
     dataType: 'json',
-    // data: {param1: 'value1'},
+    data: {method:"bdca",a: '2',b:"3",c:"464646"},
   })
   .done(function(res) {
     alert(res.data.uname);
