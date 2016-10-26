@@ -13,7 +13,7 @@ $('.btn').click(function(event) {
     $('.main').css({backgroundImage:'url('+str+')'});
     console.log("success");
   })
-  .fail(function() {
+  .fail(function(res) {
     console.log("error");
   })
   .always(function() {
@@ -33,7 +33,7 @@ $("#mock").click(function(event) {
     alert(res.data.uname);
     console.log("success");
   })
-  .fail(function() {
+  .fail(function(res) {
     console.log("error");
   })
   .always(function() {
@@ -45,10 +45,10 @@ $("#mock").click(function(event) {
 $('#mock_data').click(function(event) {
   /* Act on the event */
   $.ajax({
-    url: '/api/dynamic/time',
+    url: '/api/user',
     type: 'GET',
-    dataType: 'json'
-    // data: {param1: 'value1'},
+    dataType: 'json',
+    data: {method:"a.b.c",a: '2',b:"3",c:"464646"}
   })
   .done(function(res) {
     alert(res.data.uname+res.data.uage);
