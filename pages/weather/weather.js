@@ -41,3 +41,23 @@ $("#mock").click(function(event) {
   });
   
 });
+
+$('#mock_data').click(function(event) {
+  /* Act on the event */
+  $.ajax({
+    url: '/api/dynamic/time',
+    type: 'GET',
+    dataType: 'json'
+    // data: {param1: 'value1'},
+  })
+  .done(function(res) {
+    alert(res.data.uname+res.data.uage);
+    // console.log(res.data.uname+">>"+res.data.uid);
+  })
+  .fail(function(res) {
+    console.log('fail');
+  })
+  .always(function(res) {
+    console.log('always');
+  });
+});

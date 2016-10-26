@@ -141,14 +141,14 @@ fis
     // 启用hash值
     // useHash: true,
     // 压缩文件
-    optimizer: fis.plugin('uglify-js', {
-        mangle: {
-          except: 'exports, module, require, define' //不需要混淆的关键字
-        },
-        compress: {
-          drop_console: true //自动删除console
-        }
-    }),
+    // optimizer: fis.plugin('uglify-js', {
+    //     mangle: {
+    //       except: 'exports, module, require, define' //不需要混淆的关键字
+    //     },
+    //     compress: {
+    //       drop_console: true //自动删除console
+    //     }
+    // }),
     id : '$1.js',
     isViews : true,
     release: '/${name}_${version}/js/$1'
@@ -182,10 +182,10 @@ fis.media('test')
     })
      // Mock 假数据模拟 
     // https://github.com/fex-team/fis3/blob/dev/doc/docs/node-mock.md
-    .match('/_mock/**', {
+    .match('/mock/**', {
       release: '$0'
     })
-    .match('/_mock/server.conf', {
+    .match('/mock/server.conf', {
       release: '/config/server.conf'
     });
 
