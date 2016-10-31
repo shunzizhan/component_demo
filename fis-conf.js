@@ -49,6 +49,13 @@ fis.set('project.ignore', [
     "fis-conf.js"
 ]);
 
+//file : path/to/project/fis-conf.js 
+//使用simple插件，自动应用pack的资源引用 
+fis.set('modules.postpackager', 'simple');
+//开始autoCombine可以将零散资源进行自动打包 
+fis.set('settings.postpackager.simple.autoCombine', true);
+//开启autoReflow使得在关闭autoCombine的情况下，依然会优化脚本与样式资源引用位置 
+fis.set('settings.postpackager.simple.autoReflow', true);
 
 fis
   // ********静态资源**********************
@@ -162,11 +169,11 @@ fis
 
 //file : path/to/project/fis-conf.js 
 //使用simple插件，自动应用pack的资源引用 
-fis.set('modules.postpackager', 'simple');
+fis.config.set('modules.postpackager', 'simple');
 //开始autoCombine可以将零散资源进行自动打包 
-fis.set('settings.postpackager.simple.autoCombine', true);
+fis.config.set('settings.postpackager.simple.autoCombine', true);
 //开启autoReflow使得在关闭autoCombine的情况下，依然会优化脚本与样式资源引用位置 
-fis.set('settings.postpackager.simple.autoReflow', true);
+fis.config.set('settings.postpackager.simple.autoReflow', true);
 
 
 // 测试开发
