@@ -50,46 +50,6 @@ fis.set('project.ignore', [
 ]);
 
 
-//postpackager插件接受4个参数，
-//ret包含了所有项目资源以及资源表、依赖树，其中包括：
-//   ret.src: 所有项目文件对象
-//   ret.pkg: 所有项目打包生成的额外文件
-//   reg.map: 资源表结构化数据
-//其他参数暂时不用管
-var createFrameworkConfig = function(ret, conf, settings, opt){
-    var map = {};
-    map.deps = {};
-    fis.util.map(ret.src, function(subpath, file){
-      if(file.subdirname =="/pages/search"){
-        console.log("/////////////////////////////////");
-        console.log(file.id);
-        console.log("????????????")
-        // console.log(file);
-        console.log(file.requires);
-        console.log("/////////////////////////////////");
-      }
-      if(file.requires && file.requires.length){
-          map.deps[file.id] = file.requires;
-      }
-    });
-    //把配置文件序列化
-    var stringify = JSON.stringify(map, null, opt.optimize ? null : 4);
-
-    //再次遍历文件，找到isViews标记的文件
-    //替换里面的__FRAMEWORK_CONFIG__钩子
-    fis.util.map(ret.src, function(subpath, file){
-        //有isViews标记，并且是js或者html类文件，才需要做替换
-        if(file.isViews && (file.isJsLike || file.isHtmlLike)){
-            var content = file.getContent();
-            //替换文件内容
-            content = content.replace(/\b__FRAMEWORK_CONFIG__\b/g, stringify);
-            file.setContent(content);
-        }
-    });
-};
-//在modules.postpackager阶段处理依赖树，调用插件函数
-fis.config.set('modules.postpackager', [createFrameworkConfig]);
-
 fis
   // ********静态资源**********************
   // **包含第三方库文件，通用的js/css/img**
@@ -123,6 +83,33 @@ fis
     release: false
   })
   // ************************************
+  // *********组件*******************
+  // ************************************
+  .match(/^\/components\/\w+\/(\w+)\.less$/i, {
+    parser: fis.plugin('less'),
+    rExt: '.css',
+    useHash: true,
+    useSprite: true,
+    optimizer: fis.plugin('clean-css'),
+    release: '/${name}_${version}/c/$1'
+  })
+  .match(/^\/components\/\w+\/(\w+)\.js$/i, {
+    useHash: true,
+    // 压缩文件
+    optimizer: fis.plugin('uglify-js', {
+        mangle: {
+          except: 'exports, module, require, define' //不需要混淆的关键字
+        },
+        compress: {
+          drop_console: true //自动删除console
+        }
+    }),
+    release: '/${name}_${version}/c/$1'
+  })
+  .match('/components/**.{html,tpl}', {
+    release: false
+  })
+  // ************************************
   // *********业务逻辑*******************
   // ************************************
   // less
@@ -149,7 +136,6 @@ fis
     //       drop_console: true //自动删除console
     //     }
     // }),
-    id : '$1.js',
     isViews : true,
     release: '/${name}_${version}/js/$1'
   })
@@ -173,6 +159,14 @@ fis
       margin: 5 //图之间的边距
     })
   })
+
+//file : path/to/project/fis-conf.js 
+//使用simple插件，自动应用pack的资源引用 
+fis.set('modules.postpackager', 'simple');
+//开始autoCombine可以将零散资源进行自动打包 
+fis.set('settings.postpackager.simple.autoCombine', true);
+//开启autoReflow使得在关闭autoCombine的情况下，依然会优化脚本与样式资源引用位置 
+fis.set('settings.postpackager.simple.autoReflow', true);
 
 
 // 测试开发
@@ -227,6 +221,9 @@ fis.media('build')
         ignoreWords:['ko'], //删除注释时，需要过滤的字眼，主要排除模板引擎自带的注释
         minifier:false //是否压缩
       })
+    })
+    .match('/mock/server.conf', {
+      release: '/config/server.conf'
     });
     // .match('*', {
     //   domain: "${domain_build}"
