@@ -9,7 +9,8 @@ module.exports = function(req, res, next) {
     "message": "ok",
     "data": {
       "uname": _name[_index],
-      "uage": _age[_index]
+      "uage": _age[_index],
+      "ucity":req
     }
   }
   res.write(JSON.stringify(_data));

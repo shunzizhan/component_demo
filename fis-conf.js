@@ -68,6 +68,10 @@ fis
     id : '/public/css/$1',
     useSprite: true,
     optimizer: fis.plugin('clean-css'),
+    preprocessor: fis.plugin('cssprefixer', {
+        "browsers": ["FireFox > 1", "Chrome > 1", "ie >= 8"],
+        "cascade": true
+    }),
     release: '/public/css/$1'
   })
   // .match(/^\/public\/css\/(\w+)\.css$/i, {
@@ -91,6 +95,10 @@ fis
     useHash: true,
     useSprite: true,
     optimizer: fis.plugin('clean-css'),
+    preprocessor: fis.plugin('cssprefixer', {
+        "browsers": ["FireFox > 1", "Chrome > 1", "ie >= 8"],
+        "cascade": true
+    }),
     release: '/${name}_${version}/c/$1'
   })
   .match(/^\/components\/\w+\/(\w+)\.js$/i, {
@@ -121,6 +129,10 @@ fis
     optimizer: fis.plugin('clean-css'),
     id : '$1.css',
     isViews : true,
+    preprocessor: fis.plugin('cssprefixer', {
+        "browsers": ["FireFox > 1", "Chrome > 1", "ie >= 8"],
+        "cascade": true
+    }),
     release: '/${name}_${version}/css/$1'
   })
   // js
@@ -159,14 +171,19 @@ fis
       margin: 5 //图之间的边距
     })
   })
+  .match('**.png', {
+    optimizer: fis.plugin('png-compressor', {
+        type: 'pngquant'
+    })
+  })
 
 //file : path/to/project/fis-conf.js 
 //使用simple插件，自动应用pack的资源引用 
-fis.config.set('modules.postpackager', 'simple');
+fis.set('modules.postpackager', 'simple');
 //开始autoCombine可以将零散资源进行自动打包 
-fis.config.set('settings.postpackager.simple.autoCombine', true);
+fis.set('settings.postpackager.simple.autoCombine', true);
 //开启autoReflow使得在关闭autoCombine的情况下，依然会优化脚本与样式资源引用位置 
-fis.config.set('settings.postpackager.simple.autoReflow', true);
+fis.set('settings.postpackager.simple.autoReflow', true);
 
 
 // 测试开发

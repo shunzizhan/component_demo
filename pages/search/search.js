@@ -15,3 +15,6 @@
 //    Act on the event 
 //   alert("搜索");
 // });
+
+var _map = __RESOURCE_MAP__;
+console.log(_map);
