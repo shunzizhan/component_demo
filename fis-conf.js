@@ -1,7 +1,8 @@
 
 //项目配置，将name、version独立配置，统管全局
-fis.set('name', 'house');
-fis.set('version', '1.0.2');
+var proName = 'house',v='1.0.2';
+fis.set('name', proName);
+fis.set('version', v);
 // 测试环境
 fis.set('domain_test', ''); //开发环境静态资源
 // 预发布环境
@@ -45,7 +46,7 @@ fis.set('project.ignore', [
     // '_build/**',
     // 'components/**',
     '*.{cmd,md,zip,rar}',
-    "package.json",
+    "{package,map}.json",
     "fis-conf.js"
 ]);
 
@@ -74,11 +75,6 @@ fis
     }),
     release: '/public/css/$1'
   })
-  // .match(/^\/public\/css\/(\w+)\.css$/i, {
-  //   useSprite: true,
-  //   optimizer: fis.plugin('clean-css')
-  //   // release: '/public/css/$1?v=${version}'
-  // })
   .match(/^\/public\/js\/(.*)$/i, {
     id : '$1',
     release: '/public/js/$1'
@@ -99,7 +95,7 @@ fis
         "browsers": ["FireFox > 1", "Chrome > 1", "ie >= 8"],
         "cascade": true
     }),
-    release: '/${name}_${version}/c/$1'
+    release: '/${name}_${version}/css/c/$1'
   })
   .match(/^\/components\/\w+\/(\w+)\.js$/i, {
     useHash: true,
@@ -112,7 +108,7 @@ fis
           drop_console: true //自动删除console
         }
     }),
-    release: '/${name}_${version}/c/$1'
+    release: '/${name}_${version}/js/c/$1'
   })
   .match('/components/**.{html,tpl}', {
     release: false
@@ -124,32 +120,30 @@ fis
   .match(/^\/pages\/\w+\/(\w+)\.less$/i, {
     parser: fis.plugin('less'),
     rExt: '.css',
-    useHash: true,
+    // useHash: true,
     useSprite: true,
     optimizer: fis.plugin('clean-css'),
-    id : '$1.css',
-    isViews : true,
     preprocessor: fis.plugin('cssprefixer', {
         "browsers": ["FireFox > 1", "Chrome > 1", "ie >= 8"],
         "cascade": true
-    }),
-    release: '/${name}_${version}/css/$1'
+    })
+    // release: '/${name}_${version}/css/$1'
   })
   // js
   .match(/^\/pages\/\w+\/(\w+)\.js$/i, {
     // 启用hash值
     // useHash: true,
     // 压缩文件
-    // optimizer: fis.plugin('uglify-js', {
-    //     mangle: {
-    //       except: 'exports, module, require, define' //不需要混淆的关键字
-    //     },
-    //     compress: {
-    //       drop_console: true //自动删除console
-    //     }
-    // }),
-    isViews : true,
-    release: '/${name}_${version}/js/$1'
+    optimizer: fis.plugin('uglify-js', {
+        mangle: {
+          except: 'exports, module, require, define' //不需要混淆的关键字
+        },
+        compress: {
+          drop_console: true //自动删除console
+        }
+    })
+    // isViews : true
+    // release: '/${name}_${version}/js/$1'
   })
   // 图片
   .match(/^\/pages\/(\w+)\/img\/(.*)$/i, {
@@ -169,6 +163,17 @@ fis
       htmlUseSprite: true, //开启模板内联css处理,默认关闭
       styleReg: /(<style(?:(?=\s)[\s\S]*?["'\s\w\/\-]>|>))([\s\S]*?)(<\/style\s*>|$)/ig,
       margin: 5 //图之间的边距
+    }),
+    postpackager: fis.plugin('loader', {
+      allInOne: {
+        ignore:['/libs/**','/public/**'],
+        js: function (file) {
+          return "/"+proName+"_"+v+"/js/" + file.filename + "_aio.js";
+        },
+        css: function (file) {
+          return "/"+proName+"_"+v+"/css/" + file.filename + "_aio.css";
+        }
+      }   
     })
   })
   .match('**.png', {
@@ -176,15 +181,6 @@ fis
         type: 'pngquant'
     })
   })
-
-//file : path/to/project/fis-conf.js 
-//使用simple插件，自动应用pack的资源引用 
-fis.set('modules.postpackager', 'simple');
-//开始autoCombine可以将零散资源进行自动打包 
-fis.set('settings.postpackager.simple.autoCombine', true);
-//开启autoReflow使得在关闭autoCombine的情况下，依然会优化脚本与样式资源引用位置 
-fis.set('settings.postpackager.simple.autoReflow', true);
-
 
 // 测试开发
 fis.media('test')
@@ -235,34 +231,24 @@ fis.media('build')
       parser: fis.plugin('html-replaceurl', {
         newWords:domain_url.build,
         removeComments:true, //是否删除注释
-        ignoreWords:['ko'], //删除注释时，需要过滤的字眼，主要排除模板引擎自带的注释
+        ignoreWords:['ko','ignore','STYLE_PLACEHOLDER','SCRIPT_PLACEHOLDER'], //删除注释时，需要过滤的字眼，主要排除模板引擎自带的注释
         minifier:false //是否压缩
       })
     })
     .match('/mock/server.conf', {
       release: '/config/server.conf'
-    });
-    // .match('*', {
-    //   domain: "${domain_build}"
-    // })
-    // .match('*.html', {
-    //   deploy: fis.plugin('http-push', {
-    //     receiver: 'http://192.168.1.9:8999/receiver',
-    //     //远端目录
-    //     to: '/root/fis_test/html/'
-    //   })
-    // })
-    // .match('/{js,css,images}/**', {
-    //   deploy: [
-    //     fis.plugin('skip-packed', {
-    //       // 配置项
-    //       skipPackedToCssSprite:true
-    //     }),
-    //     fis.plugin('http-push', {
-    //       receiver: 'http://192.168.1.9:8999/receiver',
-    //       //远端目录
-    //       to: '/root/fis_test/other/'
-    //     })
-    //   ]
-    // })
+    })
+    .match('**', {
+      deploy: [
+        fis.plugin('skip-packed', {
+          // 配置项
+          skipPackedToCssSprite:true
+          // skipPackedToPkg:true,
+          // skipPackedToAIO:true
+        }),
+        fis.plugin('local-deliver', {
+          to:'./_build'
+        })
+      ]
+    })
 

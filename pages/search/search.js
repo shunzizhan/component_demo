@@ -16,5 +16,5 @@
 //   alert("搜索");
 // });
 
-var _map = __RESOURCE_MAP__;
+var _map = "__RESOURCE_MAP__";
 console.log(_map);

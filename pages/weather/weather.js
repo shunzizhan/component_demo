@@ -45,8 +45,8 @@ $("#mock").click(function(event) {
 $('#mock_data').click(function(event) {
   /* Act on the event */
   $.ajax({
-    url: '/api/user',
-    type: 'GET',
+    url: '/api/dynamic',
+    type: 'POST',
     dataType: 'json',
     data: {method:"a.b.c",a: '2',b:"3",c:"464646"}
   })
