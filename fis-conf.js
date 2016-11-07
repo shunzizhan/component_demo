@@ -67,7 +67,7 @@ fis
     // rExt: '.css'
     rExt: '.css',
     id : '/public/css/$1',
-    useSprite: true,
+    // useSprite: true,
     optimizer: fis.plugin('clean-css'),
     preprocessor: fis.plugin('cssprefixer', {
         "browsers": ["FireFox > 1", "Chrome > 1", "ie >= 8"],
@@ -88,7 +88,7 @@ fis
   .match(/^\/components\/\w+\/(\w+)\.less$/i, {
     parser: fis.plugin('less'),
     rExt: '.css',
-    useHash: true,
+    // useHash: true,
     useSprite: true,
     optimizer: fis.plugin('clean-css'),
     preprocessor: fis.plugin('cssprefixer', {
@@ -98,7 +98,7 @@ fis
     release: '/${name}_${version}/css/c/$1'
   })
   .match(/^\/components\/\w+\/(\w+)\.js$/i, {
-    useHash: true,
+    // useHash: true,
     // 压缩文件
     optimizer: fis.plugin('uglify-js', {
         mangle: {
@@ -121,13 +121,13 @@ fis
     parser: fis.plugin('less'),
     rExt: '.css',
     // useHash: true,
-    useSprite: true,
+    // useSprite: true,
     optimizer: fis.plugin('clean-css'),
     preprocessor: fis.plugin('cssprefixer', {
         "browsers": ["FireFox > 1", "Chrome > 1", "ie >= 8"],
         "cascade": true
-    })
-    // release: '/${name}_${version}/css/$1'
+    }),
+    release: '/${name}_${version}/css/$1'
   })
   // js
   .match(/^\/pages\/\w+\/(\w+)\.js$/i, {
@@ -141,9 +141,9 @@ fis
         compress: {
           drop_console: true //自动删除console
         }
-    })
+    }),
     // isViews : true
-    // release: '/${name}_${version}/js/$1'
+    release: '/${name}_${version}/js/$1'
   })
   // 图片
   .match(/^\/pages\/(\w+)\/img\/(.*)$/i, {
@@ -238,12 +238,12 @@ fis.media('build')
     .match('/mock/server.conf', {
       release: '/config/server.conf'
     })
-    .match('**', {
+    .match('*', {
       deploy: [
         fis.plugin('skip-packed', {
           // 配置项
-          skipPackedToCssSprite:true
-          // skipPackedToPkg:true,
+          skipPackedToCssSprite:true,
+          skipPackedToPkg:true
           // skipPackedToAIO:true
         }),
         fis.plugin('local-deliver', {
