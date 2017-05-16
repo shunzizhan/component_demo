@@ -1,0 +1,378 @@
+@import url('components/variables.less');
+.m-t-15{
+  margin-top: 15px;
+}
+.color-blue{
+  color:@color-main;
+}
+.color-red{
+  color: #f02929;
+}
+.color-green{
+  color: #74c005;
+}
+.color-yellow{
+  color: #ffc000;
+}
+.top-banner{
+  height: 34px;
+  line-height: 34px;
+}
+.has-arrow{
+  .bottom-arrow{
+    margin-left:4px;
+    *margin-bottom:4px;
+    _margin-top: 4px;
+    display:inline-block;
+    width:10px;
+    height:7px;
+    background:url(img/arrow.png) no-repeat;
+  }
+}
+// 登录状态
+.nav-login{
+  li{
+    height: 34px !important;
+    a{
+      padding: 0 10px;
+      color: @font-color;
+      text-decoration: none;
+    }
+  }
+  .ar-ico{
+    display: inline-block;
+    width: 16px;
+    height: 18px;
+    vertical-align: middle;
+    background: url(img/headico.png) no-repeat;
+    &.ar-home-full-ico{
+      background-position: 1px 1px;
+    }
+    &.ar-user-full-ico{
+      background-position: 1px -17px;
+    }
+    &.ar-set-c-ico{
+      background-position: 1px -34px;
+    }
+    &.ar-sign-out-ico{
+      background-position: 1px -52px;
+    }
+    &.ar-envelope-ico{
+      background-position: -21px 1px;
+      width: 20px;
+    }
+  }
+  .login-regist{
+    display: none;
+  }
+}
+// 未登录状态
+.un-login{
+  .user-info {
+    &:hover{
+      .nav-user{
+        display: none;
+      }
+    }
+  }
+  .login-regist{
+    display: block;
+  }
+  .email{
+    display: none;
+  }
+}
+
+
+.place-container{
+  position: relative;
+  // margin-left:30px;
+  border-left: 1px solid @bg-gray;
+  border-right: 1px solid @bg-gray;
+  height: 34px !important;
+  .place-content{
+    position: absolute;
+    top:35px;
+    left:-1px;
+    display: none;
+    width:192px;
+    padding-bottom:10px;
+    box-shadow:0px 2px 8px -2px @color-gray;
+    background: @color-white;
+    border-bottom:1px solid @color-gray;
+    border-left:1px solid @color-gray;
+    border-right:1px solid @color-gray;
+    z-index:8;
+    li{
+      float: left;
+      width:60px;
+    }
+  }
+  &:hover{
+    background: @color-white;
+    border-left: 1px solid @color-gray;
+    border-right: 1px solid @color-gray;
+    border-bottom: 1px solid @color-white;
+    .has-arrow{
+      color:@color-main;
+      .bottom-arrow{
+        background:url(img/arrow-top.png) no-repeat;
+      }
+    }
+    .place-content{
+      display: block;
+      li:hover a{
+        color:@color-main;
+      }
+    }
+  }
+}
+.user-info{
+  .user-pic{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    border-radius: 50%;
+  }
+  .nav-user{
+    position: absolute;
+    min-width: 135px;
+    background-color: @color-white;
+    z-index: 10;
+    display: none;
+    margin-top: -4px; 
+    .nav-aside-list:hover{
+      background-color: #bbe3ff;
+    }
+    a{
+      display: block;
+    }
+    .anchor{
+      padding: 0 !important;
+    }
+  }
+  &:hover{
+    .nav-user{
+      display: block;
+    }
+  }
+}
+// 邮件
+.email{
+  font-size: 16px;
+  position: relative;
+  margin-right: 5px;
+  .email-num{
+    display: inline-block;
+    height: 100%;
+    font-size: 12px;
+    color: #007dd4;
+    text-align: center;
+    vertical-align: top;
+    margin-left: 5px;
+    position: relative;
+    &:before{
+      content: "(";
+      display: block;
+      position: absolute;
+      left: -4px;
+      top: -1px;
+      font-size: 12px;
+      color: #007dd4;
+    }
+    &:after {
+      content: ")";
+      display: block;
+      position: absolute;
+      right: -4px;
+      top: -1px;
+      font-size: 12px;
+      color: #007dd4;
+    }
+  }
+}
+.nav-banner{
+  li{
+    position: relative;
+    float:left;
+    a{
+      padding:0 10px;
+      color:@font-color;
+      text-decoration: none;
+      &.lastli-map{
+        .map-arrow{
+          margin-right:5px;
+          *margin-bottom: 4px;
+          display:inline-block;
+          width:12px;
+          height:11px;
+          background:url(img/arrow-map.png) no-repeat;
+        }
+      }
+    }
+    .banner-active{
+      position: absolute;
+      display: none;
+      top:35px;
+      left:-1px;
+      z-index:2;
+      width:160px;
+      height:192px;
+      text-align: center;
+      background: @color-white;
+      box-shadow:0px 2px 8px -2px @color-gray;
+      border:1px solid @color-gray;
+      border-top:0;
+      // 扫码标题
+      .attend-title{
+        height:44px;
+        line-height: 50px;
+        .font(12);
+        color:@color-main;
+      }
+      // M端
+      .fdc-ewm{
+        width:101px;
+        height:101px;
+      }
+      // 扫一扫
+      .phone-sys{
+        height:16px;
+        line-height: 16px;
+        .font(12);
+        color:@font-light;
+      }
+      // app
+      .fdc-ewapp{
+        line-height: 25px;
+        height: 25px;
+      }      
+    }
+    &.map-container{
+      .map-content{
+        position: absolute;
+        top:35px;
+        right:-1px;
+        display: none;
+        width:1198px;
+        height:192px;
+        box-shadow:0px 2px 8px -2px @color-gray;
+        background: @color-white;
+        border-bottom:1px solid @color-gray;
+        border-left:1px solid @color-gray;
+        border-right:1px solid @color-gray;
+        z-index:2;
+        .map-item{
+          padding:30px 0;
+          height:130px;
+          width:298px;
+          border:0;
+          
+          .map-title{
+            margin:-3px 13px 0 0;
+            width:104px;
+            height:130px;
+            text-align: right;
+            .font(18);
+            font-weight: bold;
+          }
+          .map-list{
+            padding:0;
+            width:180px;
+            height:130px;
+            border-right: 1px solid @color-gray;
+            li{
+              float: left;
+              height:25px;
+              line-height:25px;
+              width:85px;
+              border:0;
+              a{
+                height:25px;
+                line-height: 25px;
+                border:0;
+                .font(12);
+                color:@font-color;
+              }
+              &:hover{
+                a{
+                  color:@color-main;
+                }
+              }
+            }
+          } 
+        }
+        .map-item-last{
+          .map-title{
+            width: 85px;
+          }
+          .map-list{
+            width:196px;
+            border-right: 0;
+            li{
+              width:92px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .banner-menu{
+    border-left: 1px solid @bg-gray;
+    &::after{
+      position: absolute;
+      content: "";
+      top: 10px;
+      width: 100%;
+      right: 0;
+      height: 14px;
+      border-right: 1px solid @color-gray;
+    }
+    &.map-container{
+      &::after{
+        border-right: 0px solid @bg-gray;
+      }
+    }
+    // border-right: 1px solid @bg-gray;
+    &:hover{
+      background: @color-white;
+      border: 1px solid @color-gray;
+      border-top:0;
+      border-bottom: 1px solid @color-white;
+      .has-arrow{
+        color:@color-main;
+        .bottom-arrow{
+          background:url(img/arrow-top.png) no-repeat;
+        }
+      }
+      .phone-content{
+        height:290px;
+      }
+      .banner-active{
+        display: block;
+      }
+      .map-content{
+        display: block;
+      }
+      &::after{
+        border-right: 0px solid @bg-gray;
+      }
+    }
+    
+    // &.banner-m:hover{
+    //   &::after{
+    //     border-right: 0px solid @bg-gray;
+    //   }
+    // }
+    // &.banner-home:hover{
+    //   &.banner-m::after,&::after{
+    //     // border-right: 0px solid @bg-gray;
+    //   }
+    // }
+    // &.banner-app:hover{
+    //   &.banner-home::after,&::after{
+    //     // border-right: 0px solid @bg-gray;
+    //   }
+    // }
+  }
+}

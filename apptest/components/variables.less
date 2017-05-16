@@ -1,0 +1,83 @@
+@color-main        : #008ef0;
+@color-main-light  : #4ca4e9;
+@color-main-lighter: #cce5f6;
+@color-hot         : #ff5741;
+
+@color-holder      : #cccccc; /*提示文字颜色*/
+@color-gray        : #dddddd;
+@color-gray-dark   : #aaaaaa;
+@color-white       : #ffffff;
+@color-black       : #000000;
+
+@font-color        : #333333; //文字颜色
+@font-light        : #666666; //文字颜色
+@font-lighter      : #999999; //文字颜色
+@common-font       : #555555; //文字颜色
+@font-white        : #ffffff;
+@font-seo          : #456371;
+@font-orange       : #d7a165;
+@font-main-lighter : #849bd6;
+
+@bg-gray           : #f2f2f2;
+@bg-gray-light     : #f5f5f5;
+@bg-gray-lighter   : #f8f8f8;
+@bg-gray-dark      : #576b79;
+@bg-gray-title     : #fafafa;
+@bg-gray-rank      : #f7f7f7;
+@bg-green-light    : #e2f0f1;
+@bg-green          : #57a5a5;
+@curbg-color       : #0164ca;
+@bg-hover          : #f5f5f5;
+@bg-pink           : #ffcdd5;
+@bg-orange         : #ffeabb;
+@bg-titlemutlist   : #f7f8fc;
+
+@btn-border        : #99cbee;
+@btn-pink          : #f04533;
+@btn-orange        : #fd5841;
+@border-title-gray : #e6e6e6;
+@border-item-dash  : #e2e2e2;
+@border-pink       : #ffa4b3;
+@reply-hover       : #22b9ff;
+
+
+.font(@size){
+  font-size: unit(@size,px);
+  // font-size: unit(@size/10,rem);
+}
+//省略号
+.ellipsis(){display:block;word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+/*强制换行*/
+.break-word(){word-wrap:break-word;word-break:break-all;}
+/*禁止换行*/
+.keep-all(){word-break:keep-all;white-space:nowrap;}
+
+.opacity(@num){
+  filter:alpha(opacity=@num);       /* IE */
+  -moz-opacity:@num/100;              /* 老版Mozilla */
+  -khtml-opacity:@num/100;              /* 老版Safari */
+  opacity: @num/100;           /* 支持opacity的浏览器*/
+}
+.border-box(){
+  box-sizing: border-box;
+  *behavior: url(/libs/htc/boxsizing.htc);
+}
+.btn(@bgcolor,@fontColor:#fff){
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 4px;
+  background: @bgcolor;
+  font-size: 16px;
+  color: @fontColor;
+  padding:0 1em;
+  text-align: center;
+  text-decoration: none;
+  transition: background .4s;
+  cursor: pointer;
+  &:hover{
+    color: @fontColor;
+    background: darken(@bgcolor,10%);
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,354 @@
+
+@import url('components/variables.less');
+
+// @import url('reset.less');
+
+// @import url('base.less');
+// // 星星
+// @import url('start.less');
+
+// __inline('reset.less');
+
+// __inline('base.less');
+
+// __inline('start.less');
+ 
+/*
+    reset.less 重置部分
+ */
+
+html{
+  font-size: 10px;
+  font-family: '微软雅黑','Arial', 'Helvetica','microsoft yahei', 'sans-serif';
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: @font-color;
+  margin: 0;
+  padding: 0;
+  .font(12);
+}
+p{
+  line-height: 25px;
+  margin: 0;
+}
+div{
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+}
+ul,ul li{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+img {
+  border: none
+}
+h1,h2,h3,h4,h5,h6{
+  // margin: 10px 0;
+  font-weight: 100;
+}
+h1{
+  .font(32);
+}
+h2{
+  .font(28);
+}
+h3{
+  .font(24);
+}
+h4{
+  .font(18);
+}
+h5{
+  .font(14);
+}
+h6{
+  .font(12);
+}
+em{
+  font-style: normal;
+  display: inline-block;
+}
+a{
+  color: @font-color;
+  text-decoration: none;
+  transition: color .3s;
+  &:hover{
+    color: @color-main;
+    text-decoration: none;
+  }
+}
+//处理 placeholder
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color:@font-lighter;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color:@font-lighter;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color:@font-lighter;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color:@font-lighter;
+}
+input:focus{
+  outline:none;
+}
+.f-l {
+  float: left !important;
+  display: inline-block;
+}
+.f-r {
+  float: right !important;
+  display: inline-block;
+}
+.f-n {
+  float: none !important;
+}
+.cf{
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  *html &{
+    zoom: 1;
+  }
+  *+html &{
+    zoom: 1;
+  }
+}
+
+.border-b{
+  border-bottom: 1px solid @color-gray;
+}
+.container-full{
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background: @color-white;
+}
+.container-main{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+
+.bg-gray{
+  background-color: @bg-gray;
+}
+.w1200{
+  width: 1200px;
+  margin:0 auto;
+}
+
+.hide{
+  display: none;
+}
+
+.img-responsive{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+.btn-main{
+  .btn(@color-main);
+}
+.btn-hot{
+  .btn(@color-hot);
+}
+
+.btn-sm{
+  height: 35px;
+  line-height: 35px;
+  font-size: 14px;
+}
+.btn-block{
+  display: block !important;
+}
+.placeholder {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.p-relative{
+  position: relative;
+}
+.padding-0{
+  padding: 0 !important;
+}
+.pdl10{
+  padding-left: 10px;
+}
+.pdr10{
+  padding-right: 10px;
+}
+
+.red{
+  color:@color-hot !important;
+}
+.mt5{
+  margin-top:5px;
+}
+.mt20{
+  margin-top: 20px!important;
+}
+.mt30{
+  margin-top: 30px!important;
+}
+.mt60{
+  margin-top: 60px!important;
+}
+.mt100{
+  margin-top: 100px!important;
+}
+.ml20{
+  margin-left:20px;
+}
+.mr10{
+  margin-right: 10px;
+}
+.georgia{
+  font-family: 'Georgia Regular';
+}
+.fontlt{
+  color: @font-light;
+}
+.fontlter{
+  color: @font-lighter;
+}
+
+//模块标题
+.title{
+  height:36px;
+  line-height: 36px;
+  border:1px solid @color-gray;
+  border-top: 2px solid @color-main;
+  background: @bg-gray-title;
+
+  &.title-full{
+    width:1198px;
+  }
+  &.title-left{
+    width:828px;
+    height: 48px;
+    line-height: 48px;
+  }
+  &.title-right{
+    width:338px;
+  }
+
+  .name{
+    .font(16);
+    font-weight: bold;
+    margin:0px 10px 0px 12px;
+  }
+  .more{
+    .font(14);
+    color:@font-lighter;
+    margin-right: 10px;
+    cursor:pointer;
+    transition:all .3s ease;
+    &:hover{
+      color:@color-main;
+    }
+  }
+  &.title-mutip{
+    border-top:1px solid @color-gray;
+    background: @color-white;
+    .titlemutlist{
+      display: inline-block;
+      margin-top:-1px;
+      li{
+        width:110px;
+        height: 47px;
+        line-height: 47px;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+        border-top:2px solid transparent;
+        border-right: 1px solid @color-gray;
+        border-bottom: 1px solid @color-gray;
+        &.cur{
+          border-top:2px solid @color-main;
+          border-bottom: 1px solid @color-white;
+          color:@color-main;
+        }
+      }
+    }
+  }
+}
+/*
+  分数显示
+ */
+
+.mystar{
+  display:inline-block;
+  width:62px;
+  height:9px;
+  background:url("img/tstar_g.png?__sprite");
+  .fullstar{
+    height:9px;
+    width:0%;
+    display:block;
+    background:url("img/tstar_r.png?__sprite");
+  }
+  &.star0{
+    .fullstar{
+      width:0%;
+    }
+  }
+  &.star1{
+    .fullstar{
+      width:20%;
+    }
+  }
+  &.star2{
+    .fullstar{
+      width:40%;
+    }
+  }
+  &.star3{
+    .fullstar{
+      width:60%;
+    }
+  }
+  &.star4{
+    .fullstar{
+      width:80%;
+    }
+  }
+  &.star5{
+    .fullstar{
+      width:100%;
+    }
+  }
+  &.bigstar{
+    width:96px;
+    height:15px;
+    background:url("img/star_g.png?__sprite");
+    .fullstar{
+      height:15px;
+      background:url("img/star_r.png?__sprite");
+    }
+  }
+  &.bluestar{
+    width:80px;
+    height:14px;
+    background:url("img/star_b_g.png?__sprite");
+    .fullstar{
+      height:15px;
+      background:url("img/star_b_l.png?__sprite");
+    }
+  }
+}

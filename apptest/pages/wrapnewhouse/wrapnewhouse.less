@@ -1,0 +1,564 @@
+@import url('/components/variables.less');
+.newhouse-box{
+  .conditionwrapper{
+    background:  @bg-titlemutlist;
+    border-bottom: 1px solid @border-title-gray;
+    padding:0 20px;
+    position:relative;
+    .condition-item{
+      padding:26px 0 20px 0;
+      line-height:20px;
+      li{
+        margin-right:14px;
+        height:32px;
+        line-height:32px;
+        border:1px solid #c3c3c3;
+        padding:0 10px;
+        color:@font-light;
+        font-size:14px;
+        text-align:center;
+        position:relative;
+        cursor:pointer;
+        &.active{
+          border-color:#22b9ff;
+          color:#22b9ff;
+          &:after{
+            content:"";
+            position:absolute;
+            display:block;
+            width:17px;
+            height:17px;
+            background:url("img/select.png?__sprite") no-repeat;
+            right:0;
+            bottom:0;
+          } 
+        }
+      }
+    }
+    .buypath{
+      display:none;
+      height:42px;
+      padding-bottom:26px;
+      .gflc{
+        width:57px;
+        height:14px;
+        background:url("img/gflc.png?__sprite") no-repeat;
+        margin-top:14px;
+      }
+      .path{
+        margin-left:20px;
+        li{
+          margin-top:12px;
+        }
+        .item{
+          a{
+            color:#fff;
+          }
+          .isblock{
+            display:block;
+          }
+          height:18px;
+          background: #849bd6;
+          color:#fff;
+          border-radius:2px;
+          cursor:pointer;
+          padding-right: 6px;
+          em{
+            width:16px;
+            height:16px;
+            background:#fff;
+            color:#849bd6;
+            text-align:center;
+            border-radius:2px;
+            margin:1px 6px 0 1px;
+          }
+        }
+        .special{
+          height:42px;
+          margin-top:0;
+          .item{
+            margin-top:0;
+            &.mb6{
+              margin-bottom: 6px;
+            }
+          }
+        }
+        .arrow{
+          width:6px;
+          height:7px;
+          background:url("img/patharrow.png?__sprite") no-repeat;
+          margin:18px 12px;
+        }
+      }
+    }
+    .condition-txt{
+      line-height:22px;
+      padding-bottom: 20px;
+      .time-txt{
+        font-size:12px;
+        color:@font-color;
+        font-weight:bolder;
+        margin-right:8px;
+        &.mr14{
+          margin-right:14px;
+        }
+      }
+      .opentimepre{
+        height:26px;
+        line-height:26px;
+      }
+      .endtime{       
+        em{
+          background:#575757;
+          color:#fff;
+          font-weight:bolder;
+          min-width: 22px;
+          height:22px;
+          text-align:center;
+          margin:0 6px;
+        }
+      }
+      .oli{
+        margin-left:20px;
+        a{
+          color:#455473;
+        }
+        em{
+          width:14px;
+          height:14px;
+          vertical-align:-2px;
+          margin-right: 6px;
+        }
+        &.opentellme{
+          em{
+            background:url("img/oclock.png?__sprite") no-repeat;
+          }
+        }
+        &.presalecard{
+          em{
+            background:url("img/presalecard.png?__sprite") no-repeat;
+          }
+        }
+      }
+    }
+    .select-house{
+      position:absolute;
+      top:78px;
+      right:0;
+      .select-btn{
+        width:70px;
+        height:30px;
+        background-color: @reply-hover;
+        font-size:12px;
+        line-height:30px;
+        text-align:center;
+        border-radius:2px;
+        margin-right:20px;
+        cursor:pointer;
+        color:#fff;
+      }
+      .checktxt-box{
+        margin-right:20px;
+        text-align:center;
+        width:80px;
+        height:28px;
+        line-height:28px;
+        color:#008ef0;
+        padding:0 6px;
+        border:1px solid  @bg-titlemutlist;
+        cursor:pointer;
+        &.on{
+          border-color:#7bc3f6;
+          .checktxt{
+            color:#22b9ff; 
+          }
+        }
+      }
+      .checktxt{
+        display:inline-block;
+        margin:0 4px;
+        font-size:14px;
+        color:@font-color;
+      }
+      .select-icon{
+        width:10px;
+        height:5px;
+        vertical-align:2px;
+        &.select-down{
+          background:url("img/select-down.png?__sprite") no-repeat;
+        }
+        &.select-up{
+          background:url("img/select-up.png?__sprite") no-repeat;
+        }
+      }
+    }
+  }
+  .houselistbox{
+
+    .houselisttitle{
+      height: 44px;
+      line-height: 44px;
+      background: @bg-gray-title;
+      border-bottom:1px solid @border-title-gray;
+      padding-left: 210px;
+      color:@font-lighter;
+      text-align: center;
+    }
+    .housenum{
+      width:140px;
+    }
+    .housearea{
+      width:65px;
+    }
+    .houseprice{
+      width:100px;
+    }
+    .housetotal{
+      width:140px;
+    }
+    .houseserve{
+      width:173px;
+    }
+  }
+  .houseitem-left{
+    width:210px;
+    border-right: 1px solid @border-title-gray;
+    .left-top{
+      border-bottom:1px solid @border-title-gray;
+      padding:17px 10px 14px 10px;
+      .tit{
+        line-height:18px;
+        font-size:12px;
+        color:@font-color;
+        font-weight:bold;
+      }
+      .lt-icon{
+        height:13px;
+        line-height:13px;
+        margin-top:13px;
+        a{
+          float:left;
+          margin-right:10px;
+          color:#4c6983;
+          font-size:12px;
+          &.mr0{
+            margin-right:0;
+          }
+        }
+        em{
+          width:14px;
+          height:13px;
+          vertical-align:-2px;
+          margin-right:4px;
+        }
+        .lt-hxt{
+          background:url("img/hxt.png?__sprite") no-repeat;
+        }
+        .lt-zxal{
+          background:url("img/zxal.png?__sprite") no-repeat;
+        }
+        .lt-dp{
+          background:url("img/zan.png?__sprite") no-repeat;
+        }
+      }
+    }
+    .left-bottom{
+      padding:10px;
+      .lb-head{
+        font-size:14px;
+        color:@font-color;
+        line-height:18px;
+      }
+      .lb-items{
+        li{
+          line-height:26px;
+          font-size:12px;
+          .ellipsis();
+        }
+      }
+    }
+  }
+  .houseitem-right{
+    width: 617px;
+    margin-left: -1px;
+    border-left: 1px solid @border-title-gray;
+    .hr-items{
+      border-bottom:1px solid @border-title-gray;
+      height:89px;
+      li{
+        height:89px;
+        width:100%;
+        text-align:center;
+        white-space:nowrap;
+      }
+      span{
+        display:inline-block;
+        vertical-align:middle;
+        color:@font-color;
+      }
+      .p2{
+          font-size:12px;
+          color:@font-lighter;
+          line-height:20px;
+      }
+      .p1{
+          font-size:14px;
+          line-height:20px;
+          &.break{
+            width:88px;
+            white-space:normal;
+          }
+      }
+      .p3{
+        color:#ff5741;
+        font-size:12px;
+        line-height:16px;
+        em{
+          width:11px;
+          height:10px;
+          background:url("img/djq.png?__sprite") no-repeat;
+          margin-right:4px;
+        }
+      }
+      .ht-detail{
+          font-size:12px;
+          color:@font-lighter;
+          padding-left:4px;
+        }
+      .h-base{
+        width:0;
+        vertical-align:middle;
+        height:100%;
+      }
+      .h-index{
+        width:140px;
+        .sale-state{
+          font-size:14px;
+          line-height:24px;
+          margin-left:4px;
+          color:#fff;
+          padding:0 4px;
+          &.h-saleing{
+            background:@color-main-light;
+          }
+          &.h-presale{
+            background:#96a0d1;
+          }
+          &.h-salend{
+            background:@color-holder;
+          }
+        }
+      }
+      .h-area{
+        width:65px;
+        font-size:14px;
+      }
+      .h-price{
+        width:100px;
+      }
+      .h-total{
+        width:140px;
+      }
+      .h-serve{
+        width:172px;
+        position:relative;
+        .hs-btnbox{
+          width:78px;
+        }
+        .hs-btn-set{
+          font-size:12px;
+          width:64px;
+          height:26px;
+          line-height:26px;
+          border:1px solid #c2c2c2;
+          color:@font-color;
+          border-radius:4px;
+          margin-left:6px;
+          cursor:pointer;
+          &.disable{
+            color:#d3d3d3;
+            border-color:#dadada;
+            background-color:#fcfcfc;
+          }
+        }
+        .hs-btn-pre{
+          width:76px;
+          border:1px solid #c2c2c2;
+          border-radius:4px;
+          font-size:12px;
+          cursor:pointer;
+          .pre1{
+            height:27px;
+            line-height:27px;
+            border-bottom:1px solid #c2c2c2;
+          }
+          .pre2{
+            color:#ff5741;
+            line-height:22px;
+          }
+        }
+        .hs-opt{
+          margin-right:4px;
+          color:@font-lighter;
+          cursor:pointer;
+          &.mr0{
+            margin-right:0;
+          }
+          em{
+            height:13px;
+            width:13px;
+            vertical-align:-2px;
+            margin-right:2px;
+          }
+         
+          &.hs-share{
+            em{
+              background:url("img/h-share.png?__sprite") no-repeat;
+            }
+            &:hover{
+              color:@reply-hover;
+              em{
+                background:url("img/h-share-on.png?__sprite") no-repeat;
+              }
+            }
+          }
+
+          &.hs-start{
+            em{
+              background:url("img/h-start.png?__sprite") no-repeat;
+            }
+            &:hover{
+              color:@font-color;
+              em{
+                background:url("img/h-start-on.png?__sprite") no-repeat;
+              }
+            }
+          }
+        }
+   
+      }
+    }
+    .more-house{
+      height:40px;
+      background-color:#fafafa;
+      text-align:center;
+      line-height:40px;
+      border-bottom:1px solid @border-title-gray;
+      margin-bottom:-1px;
+      div{
+        display:inline-block;
+        font-size:12px;
+        color:@font-lighter;
+        cursor:pointer;
+        em{
+          width:8px;
+          height:5px;
+          background:url("img/select-more.png?__sprite") no-repeat;
+          margin-left:4px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .houseitem-bottom{
+    height: 60px;
+    line-height: 60px;
+    border-top:1px solid @border-title-gray;
+    border-bottom: 1px solid @border-title-gray;
+    background-color:#fafafa;
+    clear: both;
+    a{
+      line-height: 12px;
+      padding:8px 12px;
+      margin-top:16px;
+      background: @btn-orange;
+      border-radius: 20px;
+      color:@color-white;
+      margin-right: 30px;
+      &:before{
+        content:'';
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        vertical-align: sub;
+        margin-right: 4px;
+      }
+    }
+    .chipsonline{
+      margin-right: 20px;
+      &:before{
+        background: url('img/chipsonline.png?__sprite');
+      }
+    }
+    .eligibility{
+      &:before{
+        background: url('img/eligibility.png?__sprite');
+      }
+    }
+    .pgpeigou{
+      &:before{
+        background: url('img/pgpeigou.png?__sprite');
+      }
+    }
+    .viewhouse{
+      background: #06a0f6;
+      &:before{
+        background: url('img/viewhouse.png?__sprite');
+      }
+    }
+  }
+}
+.hs-sharelist{
+  display:none;
+  z-index:100;
+  position:fixed;
+  width:108px;
+  border:1px solid #8dd0fd;
+  background:#fff;
+  a{
+    display:block;
+    height:42px;
+    line-height:42px;
+    text-align:left;
+    vertical-align:middle;
+    font-size:12px;
+    color:@font-light;
+    cursor:pointer;
+    &:before{
+      content:'';
+      float:left;
+      margin:6px 8px 6px 12px;
+      width:30px;
+      height:30px;
+      background:url(img/forumpost.png) no-repeat 0 0;
+    }
+    &:hover{
+      background:#eeeeee;
+    }
+  }
+  .jiathis_button_weixin{
+    &:before{
+       background-position: -60px 0;
+    }
+  }
+  .jiathis_button_cqq{
+    &:before{
+       background-position: -30px 0;
+    }
+  }
+  .jiathis_button_qzone{
+    &:before{
+       background-position: -90px 0;
+    }
+  }
+  .jiathis_button_tsina{
+    &:before{
+       background-position: 0px 0;
+    }
+  }
+  .jiathis_button_copy{
+    &:before{
+       background-position: -120px 0;
+    }
+  }
+}

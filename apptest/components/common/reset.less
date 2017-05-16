@@ -1,0 +1,116 @@
+/*
+    reset.less 重置部分
+ */
+@import url('components/variables.less');
+// 重置样式
+html{
+  font-size: 10px;
+  font-family: '微软雅黑','Arial', 'Helvetica','microsoft yahei', 'sans-serif';
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: @font-color;
+  margin: 0;
+  padding: 0;
+  .font(12);
+}
+p{
+  line-height: 25px;
+  margin: 0;
+}
+div{
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+}
+ul,ul li{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+img {
+  border: none
+}
+h1,h2,h3,h4,h5,h6{
+  // margin: 10px 0;
+  font-weight: 100;
+}
+h1{
+  .font(32);
+}
+h2{
+  .font(28);
+}
+h3{
+  .font(24);
+}
+h4{
+  .font(18);
+}
+h5{
+  .font(14);
+}
+h6{
+  .font(12);
+}
+em{
+  font-style: normal;
+  display: inline-block;
+}
+a{
+  color: @font-color;
+  text-decoration: none;
+  transition: color .3s;
+  &:hover{
+    color: @color-main;
+    text-decoration: none;
+  }
+}
+//处理 placeholder
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color:@font-lighter;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color:@font-lighter;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color:@font-lighter;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color:@font-lighter;
+}
+input:focus{
+  outline:none;
+}
+.f-l {
+  float: left !important;
+  display: inline-block;
+}
+.f-r {
+  float: right !important;
+  display: inline-block;
+}
+.f-n {
+  float: none !important;
+}
+.cf{
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  *html &{
+    zoom: 1;
+  }
+  *+html &{
+    zoom: 1;
+  }
+}
+
+

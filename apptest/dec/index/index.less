@@ -1,0 +1,28 @@
+
+@import url('components/variables.less');
+
+//左侧公共部分
+.container-left{
+	width:830px;
+  margin-top:30px;
+}
+//右侧公共部分
+.container-right{
+	width:340px;
+	margin-top:40px;
+	.rank-item{
+		border-top:1px dashed @border-item-dash;
+		&:first-child{
+			border-top:0 none;
+		}
+    &.active{
+      .itemnormal{
+        display: none;
+      }
+      .itemopen{
+        display: block;
+      }
+    }
+	}
+}
+
