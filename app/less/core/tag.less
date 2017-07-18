@@ -1,0 +1,73 @@
+/*
+ *  张志成  2016-2-29
+ *  标签基础样式
+ */
+@import url('variables.less');
+@import url('mixins.less');
+/*基础标签*/
+.tag{
+	margin-right: 5px;
+	height: 18px;
+	line-height: 18px;
+	padding: 0 4px;
+	text-align: center;
+	.font(24);
+	color: @color-white;
+	.radius(2,2,2,2);
+	display: block;
+	float: left;
+}
+/*紫色标签*/
+.tag-purple{
+	background-color: #b9a2e0;
+}
+/*绿色标签*/
+.tag-green{
+	background-color: #8dccc4;
+}
+/*黄色标签*/
+.tag-yellow{
+	background-color: #e9c2a3;
+}
+/*红色标签*/
+.tag-red{
+	background-color: #ef7f81;
+}
+/*蓝色标签*/
+.tag-blue{
+	background-color: #4ba6e8;
+}
+.tag-pink{
+	background-color: #fee2dc;
+	color: #fb6d51;
+}
+.tag-green-light{
+	background-color: #daf5ef;
+	color: #46cead;
+}
+.specialtopic{
+	background: url(../images/bg/tip.png);
+	background-size: cover;
+}
+
+.tag-list2{
+  background-color: #b9a2e0;
+}
+.tag-list2:nth-of-type(2n) {
+  background-color: #8dccc4;
+}
+.tag-list2:nth-of-type(3n) {
+  background-color: #e9c2a3;
+}
+.tag-list2:nth-of-type(4n) {
+  background-color: #ef7f81;
+}
+
+
+
+
+
+
+
+
+

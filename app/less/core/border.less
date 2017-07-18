@@ -1,0 +1,50 @@
+/*
+ *  张志成  2016-2-29
+ *  边框&分隔线&圆角&阴影基础样式
+ */
+.border{
+  border:1px solid @font-lighter;
+  &.only-left{
+    border:1px solid transparent;
+    border-left: @color-gray;
+  }
+  &.only-right{
+    border:1px solid transparent;
+    border-right: @color-gray;
+  }
+  &.only-top{
+    border:1px solid transparent;
+    border-top: #eee;
+  }
+  &.only-bottom{
+    border:1px solid transparent;
+    border-bottom: #eee;
+  }
+}
+/*竖分割线*/
+.row-line{
+  width: 1px;
+  height: 100%;
+  display: block;
+  float: left;
+  background: #eee;
+}
+/*横分割线*/
+.col-line{
+  width: 100%;
+  height: 1px;
+  display: block;
+  background: #eee;
+}
+.radius{
+  .radius(0.04,0.04,0.04,0.04); 
+}
+.radius-lg{
+  .radius(0.08,0.08,0.08,0.08);
+}
+.radius-full{
+  .radius(1000,1000,1000,1000);
+}
+.shadow{
+  .shadow(0,0,6,@color-gray);
+}

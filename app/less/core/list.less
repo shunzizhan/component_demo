@@ -1,0 +1,523 @@
+/*
+ *  张志成  2016-3-1
+ *  列表基础样式
+ */
+.J-recommend-list{
+  display: none;
+}
+.head-wrap{
+  .head-location{
+    color: #ffffff;
+    margin-left: 5px;
+    &:after {
+      content: '';
+      margin: -2px 0 0 6px;
+      display: inline-block;
+      width: 16px;
+      height: 11px;
+      background: url(../images/icon/arr_drop_white.png) no-repeat;
+      background-size: 100%;
+      vertical-align: middle;
+    }
+  }
+  .commend-right {
+    .font(28);
+    color: #fff;
+    display: block;
+    height: 44px;
+    padding-right: 12px;
+  }
+}
+.recommend-wrap{
+  background-color: @color-white;
+  .recommend-content{
+    overflow: hidden;
+    width: 100%;
+  } 
+  .swiper-wrapper{
+    width: 100%;
+    display: flex;
+  }
+  .recommend-content-box{ 
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .recommend-list{
+    padding: 15px 0px 15px 0px;
+    margin: 0 15px;
+    border-bottom: 1px solid @color-gray;
+    clear: both;
+    &:last-child{
+      border-bottom: 0;
+    }
+    >a{
+      height: 84px;
+      display: block;
+    }
+    .img{ 
+      position: relative;
+      margin-right: 10px;
+      width: 115px;
+      height: 84px;
+      line-height: 102px;
+      text-align: center;
+      float: left;
+    }
+    .sell-recomm{
+      position: absolute;
+      left: -6px;
+      top: 6px;
+      padding: 0 9px;
+      height: 18px;
+      line-height: 18px;
+      .font(24);
+      background-color: #f24949;
+      color: @color-white;
+
+      &:after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 0;
+        border: 3px solid #992626;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+      }
+    }
+    .sell-status{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding: 0 5px;
+      height: 20px;
+      line-height: 20px;
+      .font(24);
+      background: rgba(51,51,51,.8);
+      color: @color-white;
+    }
+    .text{
+      overflow: hidden;
+      .title-wrap{
+        display: flex;
+        .unit-price{
+          color: #e84c3d;
+        }
+      }
+      h3{
+        width: 100%;
+        color: @font-color;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        flex: 1;
+      }
+      p{
+        margin-top: 8px;
+      }
+      .grade-star-wrap{
+        position: relative;
+        margin-right: 7px;
+        width: 59px;
+        height: 10.5px;
+        display: inline-block;
+        vertical-align: middle;
+
+        .grade-star-gray{
+          position: absolute;
+          width: 59px;
+          height: 10.5px;
+          display: block;
+
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .grade-star-red{
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 50%;
+          height: 10.5px;
+          display: block;
+          overflow: hidden;
+          
+          .grade-star-shade{
+            width: 59px;
+            height: 10.5px;
+            display: block;
+
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          } 
+        }
+      }
+      .grade{
+        display: inline-block;
+        vertical-align: middle;
+        .font(24);
+        color: @color-red;
+      }
+      .price{
+        .font(26);
+
+        em{
+          color: @font-lighter;
+        }
+        span{
+          .font(26);
+          color: @font-color;
+          margin-left: 3px;
+          display: block;
+          b{
+            color: #e84c3d;
+          }
+        }
+      }
+      .tag-wrap{
+        margin-top: 9px;
+        height: 18px;
+        overflow: hidden;
+
+        .tag-list{
+          background-color: #b9a2e0;
+
+          &:nth-of-type(2n){
+            background-color: #8dccc4;
+          }
+          &:nth-of-type(3n){
+            background-color: #e9c2a3;
+          }
+          &:nth-of-type(4n){
+            background-color: #ef7f81;
+          }
+        }
+      }
+    }
+    .unit-wrap{
+      display: flex;
+
+      .tag-list{
+        flex: 1;
+      }
+      .unit-price{
+        margin-top: 9px;
+        display: block;
+        line-height: 17px;
+      }
+    }
+    .total-wrap{
+      display: flex;
+
+      .desc-wrap{
+        flex: 1;
+      }
+      .total-price{
+        display: block;
+        color: #f02929;
+        .font(32);
+      }
+    }
+    .special-box{
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      background: #ffe6d9;
+      overflow: hidden;
+      margin-top: 15px;
+      display: flex;
+
+      em{
+        color: #f20303;
+        .font(24);
+        height: 30px;
+        line-height: 30px;
+        flex:1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+   .bottom-label{
+    border-top: 1px solid @color-gray;
+    padding: 0.20rem 0.33rem 0.21rem 0;
+    a{
+      line-height: 21px;
+      font-style: normal;
+      margin-left: 0.28rem;
+      .font(26);
+      color: @font-lighter;
+      display: inline-block;
+    }
+  }
+}
+/*左右滑动列表公用样式*/
+.swiper-container-list{
+  height: 2.32rem;
+  overflow: hidden;
+  
+  .swiper-wrapper{
+    position: relative;
+    width: auto;
+    z-index: 1;
+  }
+  .swiper-slide{
+    width: 2.0rem;
+    height: 2.32rem;
+    float: left;
+  } 
+}
+.house-type-list{
+  margin-right: 0.14rem;
+  display: block;
+
+  .img{
+    width: 100%;
+    height: 1.5rem;
+    position: relative;
+    
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .text{
+    width: 100%;
+    height: 0.82rem;
+    line-height: 0.4rem;
+    .rem(26);
+    color: @font-lighter;
+    text-align: center;
+    background-color: @eee;
+  }
+}
+/*租房列表页底部排序样式*/
+.bottom-btn{
+  position: relative;
+  .sort-privilege{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    max-width: 750px;
+    
+    button + button{
+      border-left: 1px solid @color-white;
+    }
+  }
+  .screen-list{
+    position: fixed;
+    bottom: 50px;
+    z-index: 9999;
+    display: none;
+    li{
+      width: 7.5rem;
+      height: 50px;
+      line-height: 50px;
+      border-top: 1px solid @color-gray;
+      text-align: left;
+      .font(30);
+      color: @font-light;
+      background-color: @color-white;
+      position: relative;
+      text-align: center;
+    }
+    .sort-right{
+      color: #505050;
+      background-color: #f2f2f2;
+      &:after{
+        position: absolute;
+        top: 14px;
+        content: '';
+        margin-left: 15px;
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: url(../images/icon/right.png) no-repeat;
+        background-size: 100%;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .sort-show{
+    display: block;
+  }
+}
+/*二手房、租房列表详情*/
+.content-pad{
+  padding-left: 0.15rem;
+}
+.box-reduce{
+  padding-left: 0.30rem !important;
+}
+.content-caption{
+  height: 0.7rem;
+  background-color: #e5f2fb;
+  color: #7fbeef;
+  line-height: 0.7rem;
+  text-align: center;
+  .font(30);
+}
+.ico-update{
+  position: absolute;
+  height: 17px;
+  line-height: 17px;
+  background: rgba(48, 150, 230, 0.7);
+  bottom: 0;
+  color: @color-white;
+  font-style: normal;
+  width: 100%;
+  text-align: center;
+  .font(21);
+}
+.recommend-wrap{
+  .recommend-list{
+    .text{
+      .price-font{
+        color: @font-color;
+        display: flex;
+        em{
+          flex: 1;
+          height: 15px;
+          line-height: 15px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          .font(23);
+          display: block;
+        }
+        span{
+          b{
+            .font(26);
+            font-weight: bold;
+          }
+        }
+      }
+      .grade-wrap{
+        margin-bottom: 0;
+        color: @font-color;
+        height: 12px;
+        span{
+          .font(24);
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+  .list-border{
+    border: 0;
+    border-bottom: 1px solid @color-gray;
+  }
+}
+/*无数据页面提示样式*/
+.not-found-wrap{
+  width: 100%;
+  padding: 2.18rem 0.24rem 0;
+  background: url(../images/bg/not_found_img.png) no-repeat #fff center 1.1rem ;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  box-sizing: border-box;
+  min-height: 400px;
+  .tip-tit{
+    text-align: center; 
+    color: #007dd4; 
+    margin-bottom: 15px;
+    .rem(34);
+  }
+  .tip-cont{
+    text-align: center;
+    .rem(30);
+  }
+}
+/*正在加载中...*/
+.blank-white{
+  width: 100%;
+  background-color: @color-white;
+  text-align: center;
+  height: 0;
+  overflow: hidden;
+  .blank-loading{
+    color: #007BD9;
+  }
+}
+.container-hide{
+  display: none;
+}
+/*底部导航*/
+.keywords-wrap{
+  background-color: @color-white;
+}
+.keywords-title-wrap{
+  display: flex;
+  color: @font-light;
+  border-bottom: 1px solid @eee;
+  .font(26);
+  text-align: center;
+}
+.title-list{
+  flex:1;
+  border-left: 1px solid @eee;
+  padding: 12px 0;
+  &.active{
+    background-color: #f7f7f7;
+  }
+}
+.title-list-text{
+  &:after{
+    content:"";
+    width: 6px;
+    height: 4.5px;
+    background: url(../images/icon/xjt.png) no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    transition: transform .5s;
+  }
+  
+  .active &:after{
+    transform: rotate(180deg);
+  }
+  &:first-child{
+    border-left: 0;
+  }
+}
+.keywords-content-wrap{
+  min-height: 102px;
+}
+.content-item-wrap{
+  padding: 5px 0;
+  overflow: hidden;
+  display: none;
+  .content-item{
+    width: 33.33%;
+    float: left;
+    padding: 5px 0;
+    text-align: center;
+    .font(24);
+    color: @font-light;
+    height: 13px;
+    overflow: hidden;
+    display: block;
+  }
+}
+.col-2-wrap{
+  .content-item{
+    width: 50%;
+  }
+}
+
+
+
+
+
+
+

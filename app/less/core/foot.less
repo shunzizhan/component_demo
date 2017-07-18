@@ -1,0 +1,55 @@
+/*
+ *  张志成 2016-3-2
+ *  公用底部样式
+ */
+@import url('mixins.less');
+@webkit-box:~"";
+.space{
+	height: 50px;
+}
+footer{
+	margin-top: 10px;
+	background: @color-white;
+
+	.foot-nav{
+		padding: 15px 0 13px 0;
+		text-align: center;
+		height: 13px;
+		border: 1px solid @color-gray;
+		.font(26);
+		color: @font-light;
+	  display: flex;
+
+		.foot-nav-list{
+			color: @font-light;
+		  flex: 1;
+		  border-right: 1px solid #c9c9c9;
+		  text-align: center;
+		  display: block;
+
+		  &:last-child{
+				border-right: 0;
+		  }
+		}
+	}
+	.copy-right{
+    padding: 14px 0;
+		text-align: center;
+		line-height: 18px;
+		.font(24);
+		color: @color-holder;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

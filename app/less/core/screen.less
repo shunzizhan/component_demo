@@ -1,0 +1,242 @@
+/*
+ *  zzc 2016-8-9
+ *  筛选条件样式
+ */
+ .screen-wrap{
+  .font(28);
+  position: relative;
+  .screen-shade{
+    top: 140px;
+    z-index: 99;
+  }
+ }
+.screen-tit-wrap{
+  display: flex;
+  padding: 8px 0;
+  background-color: @color-white;
+  border-bottom: 1px solid @color-gray;
+
+  .screen-tit-list{
+    flex: 1;
+    width: 0;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-left: 1px solid @color-gray;
+
+    a{
+      display: block;
+      margin: 0 6px;
+      height: 25px;
+    }
+    .screen-tit-text{
+      position: relative;
+      color: @font-color;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding-right: 15px;
+      max-width: 100%;
+      box-sizing: border-box;
+
+      &:after{
+        content:"";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -2px;
+        width: 0;
+        height: 0;
+        display: inline-block;
+        vertical-align: middle;
+        border: 4px solid transparent;
+        border-top: 4px solid @font-color;
+        transition: transform .5s;
+        transform-origin: 4px 2px;
+      }
+    }
+    &.active span{
+      color: #007ed5;
+    }
+    &.active:after{
+      transform: rotate(180deg);
+      border-top: 4px solid #007ed5;
+    }
+    &:first-child{
+      border-left: 0;
+    }
+  }
+}
+.screen-content-wrap{
+  position: absolute;
+  top: 42px;
+  width: 7.5rem;
+  z-index: 999;
+  .font(24);
+}
+.screen-content-list{
+  max-height: 7rem;
+  display: none;
+  background-color: @color-white;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+.area-flex-wrap{
+  display: flex;
+
+  .screen-item-wrap{
+    flex: 1;
+    border-left: 1px solid @color-gray;
+    width: 0;
+    max-height: 7rem;
+    overflow-y: scroll;
+
+    &:first-child{
+      border-left: 0;
+    }
+  }
+}
+.screen-item-list{
+  padding: 0 15px;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid @color-gray;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &.active{
+    color: #4ca4e9;
+  }
+}
+.screen-1-wrap{
+  background-color: #e5f2fc;
+
+  .screen-1-list{
+    border-bottom: 1px solid #b2d8f5;
+
+    &.active{
+      background-color: @color-white;
+    }
+  }
+}
+.other-list-wrap{
+  padding: 0 15px 20px;
+}
+.other-screen-wrap{
+  margin-top: 20px;
+}
+.other-screen-tit{
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  padding-left: 5px;
+  color: @font-color;
+  background-color: #e5f2fc;
+  .font(28);
+  box-sizing: border-box;
+}
+.other-screen-item{
+  width: 100%;
+  display: flex;
+}
+.property-screen-wrap{
+  .other-screen-list:nth-child(4n){
+    margin-right: 15px;
+  }
+}
+.other-screen-list{
+  margin: 15px 15px 0 0;
+  width: 0;
+  line-height: 25px;
+  text-align: center;
+  color: @font-light;
+  border: 1px solid @color-holder;
+  border-radius: 2px;
+  flex: 1;
+
+  &:nth-child(4n){
+    margin-right: 0;
+  }
+  &.active{
+    background-color: #80beef;
+    color: #fff;
+    border: 1px solid #4ca4eb;
+  }
+}
+.placeholder{
+  border: 0;
+}
+.col-3-screen{
+  overflow: hidden;
+  display: block;
+  .other-screen-list{
+    width: auto;
+    padding: 0 15px;
+    float: left;
+  }
+}
+.screen-confirm-wrap{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+}
+/*搜索页面样式*/
+.search-related-wrap{
+  background-color: @color-white;
+
+  .search-related-list{
+    padding: 0 0.3rem;
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    overflow: hidden;
+  }
+  .houses-name{
+    margin-right: 13px;
+    .font(30);
+    color: @font-color;
+    max-width: 3.3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .district-name,.district-subname{
+    margin-right: 10px;
+    .font(26);
+    color: @font-lighter;
+  }
+  .price-item{
+    .font(28);
+    color: @font-lighter;
+    b{
+      color: #f02929;
+    }
+  }
+  .list-left{
+    float: left;
+  }
+  .list-right{
+    float: right;
+  }
+  .houses-name{
+    color: @font-color;
+    .font(30);
+    display: inline-block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

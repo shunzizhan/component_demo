@@ -1,0 +1,30 @@
+//rem单位自动换算
+.font(@size){
+  font-size: unit(@size/2,px);
+}
+.rem(@size){
+	font-size: unit(@size/100,rem);
+}
+//省略号
+.ellipsis(){white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+/*强制换行*/
+.break-word(){word-wrap:break-word;word-break:break-all;}
+/*禁止换行*/
+.keep-all(){word-break:keep-all;white-space:nowrap;}
+/*多行省略*/
+.multi-row(){
+	 overflow: hidden;
+	 text-overflow:ellipsis;
+	 display: -webkit-box;
+	 display: -moz-box;
+	 display: box;
+	 -webkit-box-orient: vertical;
+}
+.three-row{
+	 -webkit-line-clamp:3;
+	 .multi-row();
+}
+.two-row{
+	 -webkit-line-clamp:2;
+	 .multi-row();
+}

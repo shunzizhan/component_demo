@@ -1,0 +1,122 @@
+/*
+    reset.less 重置部分
+ */
+html{
+  font-size: 100px;
+  font-family: '微软雅黑','Arial', 'Helvetica','microsoft yahei', 'sans-serif';
+  background: #eee;
+  height:100%;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: @font-color;
+  margin: 0;
+  padding: 0;
+  .font(24);
+  max-width: 750px;
+  margin: 0 auto;
+  min-height: 100%;
+  min-width: 320px;
+}
+p{
+  line-height: 1;
+  margin: 0;
+}
+div{
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;  
+}
+ul,ul li{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+img {
+  border: none
+}
+h1,h2,h3,h4,h5,h6{
+  font-weight: normal;
+  line-height: 1;
+}
+h1{
+  .font(44);
+}
+h2{
+  .font(34);
+}
+h3{
+  .font(30);
+}
+h4{
+  .font(18);
+}
+h5{
+  .font(14);
+}
+h6{
+  .font(12);
+}
+em{
+  font-style: normal;
+}
+//处理 placeholder
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color:#ccc;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color:#ccc;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color:#ccc;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color:#ccc;
+}
+.f-l {
+  float: left !important;
+  display: inline-block;
+}
+.f-r {
+  float: right !important;
+  display: inline-block;
+}
+.f-n {
+  float: none !important;
+}
+.cf:before,
+.cf:after {
+  content: "";
+  display: table
+}
+.cf:after {
+  clear: both
+}
+.cf {
+  zoom: 1
+}
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input,textarea,button{
+  -webkit-appearance: none; 
+}
+*:focus{outline: none;}
+.show{
+  display: block !important;
+}
+.hide{
+  display: none !important;
+}
+.html-unscrollable{
+  overflow: hidden;
+  height: 100%;
+
+  body{
+    overflow: hidden;
+    height: 100%;
+  }
+}

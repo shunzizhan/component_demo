@@ -1,0 +1,236 @@
+/*
+ *  张志成  2016-2-29
+ *  公用头部样式
+ */
+
+/*基础样式*/
+.head{
+  width: 100%;
+  max-width: 7.5rem;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  .font(36);
+  color: @color-white;
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+}
+.head-relative{
+  position: relative;
+}
+.change-city{
+  color: #333;
+  background: #eeeeee;
+  border:none;
+  height: 45px !important;
+}
+.chcity-ico{
+  background: #eee;
+  font-size: 0;
+  height: 45px !important;
+  .ico-changcity{
+    background: url(../images/icon/changecity.png);
+    background-size: 100%;
+    width: 9px;
+    height: 16px;
+    display: inline-block;
+  }
+}
+.confirm-btn{
+  .font(30);
+  color: @color-white;
+  padding:0 12px 0 0;
+  display: block;
+  height: 100%;
+}
+.btn-back-history,.btn-back{
+  padding:0 12px;
+  .font(34);
+  color: @color-white;
+  height: 100%;
+  display: block;
+}
+.head-tit{
+  flex: 1;
+  .font(34);
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  .ellipsis();
+}
+.head-icon{
+  display: block;
+  height: 44px;
+  line-height: 44px;
+  cursor: pointer;
+}
+.pr41{
+    padding-right:41px;
+}
+.mr14{
+  margin-right: 14px;
+}
+.mr12{
+  margin-right: 12px;
+}
+/*蓝色*/
+.head-blue{
+  background-color: @color-caption;
+}
+/*红色*/
+.head-red{
+  background-color: #f12828;
+}
+.height-44{
+  width: 100%;
+  height: 44px;
+}
+.back-tohome img{
+  padding:0 13px 0 12px;
+  display: inline-block;
+  width: 61px;
+  height: 21px;
+  margin-top: -6px;
+  vertical-align: middle;
+}
+.brumd-place{
+  height: 44px;
+  display: inline-block;
+  padding:0 17px 0 11px;
+  color: #fff;
+  font-size: 14px;
+  background: url(../images/icon/brumd_right.png) no-repeat right center;
+  background-size: 17px 44px;
+  max-width: 25%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.crumbs{
+  height: 34px;
+  line-height: 34px;
+  border-bottom: 1px solid #ddd;
+  .brumd-place{
+    height: 34px;
+    color: #555;
+    background: url(../images/icon/crumbs_right.png) no-repeat right center;
+    background-size: 10px 34px;
+  }
+}
+.crumbs-gary{
+  background-color: #f1f1f1;
+}
+.back-tohome,.brumd-place{
+  &:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+  } 
+}
+.set-direction{
+  position: absolute;
+  right: 0;
+  top:0;
+}
+.back-tohome{
+  margin:0;
+  padding:0;
+}
+.head-xiala{
+  background:url(../images/icon/arr_drop_white.png) no-repeat;
+  width:16px;
+  height:11px;
+  display:inline-block;
+  position:relative;
+  right:-10px;
+  top: 0;
+  cursor: pointer;
+}
+.head-nav-ul{
+  width:100%;
+  max-width:750px;
+  background-color:@color-white;
+  position:fixed;
+  top:45px;
+  z-index:9999;
+  display:none;
+  color:@font-color;
+  li{
+    position: relative;
+    height:44px;
+    line-height:44px;
+    .font(30);
+    padding:0 15px;
+    border-bottom:1px solid @eee;
+    a{
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+    }
+    &:last-child{
+      border-bottom:none;
+      height:45px;
+    }
+    .chose{
+      color:@color-fonts;
+      .font(36);
+      position: absolute;
+      top:13px;
+      display: none;
+      right: 10px;
+    }
+    &.active .chose{
+      display: block;
+    }
+  }
+  .activeli{
+    color:@color-fonts !important;
+  }
+}
+.top-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 38px;
+  background-color: #fff;
+  border-bottom: 2px solid #eee;
+  a{
+    flex: 1;
+    display: block;
+    box-sizing: border-box;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    .font(30);
+    color: #555;
+  }
+  .active{
+    border-bottom: 2px solid #007dd4;
+    color: #007dd4
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

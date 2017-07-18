@@ -1,0 +1,209 @@
+/*
+ *  张志成  2016-2-29
+ *  按钮基础样式 
+ */
+@import url('variables.less');
+@import url('mixins.less');
+button{
+  outline: none;
+}
+/**
+ * 基础的 所有涉及到按钮的 均需引用该基础样式
+ * 然后根据需求，对样式进行覆盖 命名 .btn-XXX
+ */
+.btn{
+  text-align: center;
+  color: @color-white;
+  .radius(2,2,2,2);
+  display: block;
+  .font(32);
+  font-family: "微软雅黑";
+}
+// 禁止点击
+.btn-noevent{
+  pointer-events: none;
+}
+.btn-apply{
+	margin: 5px 14px 0 0;
+	width: 72px;
+	height: 20px;
+	line-height: 20px;
+	float: right;
+	background-color: #f20303;
+	.radius(2,2,2,2);
+}
+.btn-more{
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  height: 45px;
+  line-height: 45px;
+  font-size: 13px;
+  color: #666;
+  background-color: #f2f2f2;
+  .morebtn-ico{
+    background: url(/images/icon/loadmore.png);
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+    background-size: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -4px;
+  }
+  .revolve{
+    font-size: 15px;
+  }
+}
+.btn-backtop{
+	position: fixed;
+	right: 0.44rem;
+	bottom: 2.0rem;
+	width: 34px;
+	height: 34px;
+	background: url(/images/icon/backTop.png) no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+	-webkit-opacity: 0;
+	-moz-opacity: 0;
+	opacity: 0;
+	transition: opacity .5s;
+	-moz-transition: opacity .5s; /* Firefox 4 */
+	-webkit-transition: opacity .5s; /* Safari 和 Chrome */
+	-o-transition: opacity .5s; /* Opera */
+  z-index: 9999;
+}
+.btn-login{
+	
+}
+.btn-acquire{
+	width: 2.25rem;
+	height: 42px;
+	line-height: 42px;
+	background-color: #fc6565;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	.font(26);
+	.radius(0,2,2,0);
+}
+.btn-submit{
+	width: 100%;
+	height: 0.84rem;
+	line-height: 0.84rem;
+	background-color: @color-red;
+	border: 0;
+	.font(30);
+}
+.btn-affirm{
+	margin: 0.28rem auto 0;
+	width: 1.5rem;
+	height: 30px;
+	line-height: 30px;
+	background-color: @color-red;
+}
+.btn-ambitus{
+	margin-top: 0.34rem;
+	width: 6.88rem;
+	height: 39px;
+	line-height: 39px;
+	border: 1px solid #007dd4;
+	color: #007dd4;
+}
+.btn-inform{
+	border: 1px solid #007dd4;
+	color: #007dd4;
+}
+.btn-consult{
+	width: 3.74rem;
+	height: 50px;
+	line-height: 50px;
+	background-color: #4ca4e9;
+	.radius(0,0,0,0);
+	.font(32);
+}
+.btn-sort{
+  float: left;
+  width: 50%;
+  height: 50px;
+  background-color: #4ca4e9;
+  color: @color-white;
+  border:0;
+  .font(32);
+  text-align: center;
+  font-family: "Microsoft YaHei";
+ 	.radius(0,0,0,0);
+}
+.btn-active{
+  background-color: #3d8ac6;
+  color: @color-holder;
+}
+.btn-screen{
+  flex: 1;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  .font(28);
+  color: @color-white;
+  display: block;
+}
+.btn-cancel{
+  background-color: @color-holder
+}
+.btn-confirm{
+  background-color: #007ed5;
+}
+.btn-housestatus{
+  margin-right: 5px;
+  color:@color-status;
+  .font(24);
+  border-radius:2px;
+  border:1px solid @color-status;
+  text-align:center;
+  line-height:17px;
+  height:16px;
+  padding:0 8px 0 9px;
+  display:inline-block;
+}
+/*显示隐藏的更多信息按钮*/
+.btn-hide-more{
+  .font(28);
+  text-align: center;
+  line-height: 40px;
+  display: none;
+  &:after{
+    content:'\F102';
+    font-family: ArtReactor;
+    color: #99cbee;
+  }
+}
+.btn-server-apply{
+  margin: 3px 0 0 10px;
+  border: 1px solid #f02929;
+  color: #f02929;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 10px;
+  .font(28);
+}
+.btn-comment-href,.btn-comment-href-app{
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  .font(28);
+  color: #007dd4;
+  border: 1px solid #007dd4;
+  box-sizing: border-box;
+}
+.btn-comment-fixed,.btn-comment-fixed-app{
+  position: fixed;
+  bottom: 0;
+  background-color: #4ca4e9;
+  width: 7.5rem;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  .font(28);
+  color: @color-white;
+  z-index: 999;
+}

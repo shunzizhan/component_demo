@@ -1,0 +1,221 @@
+/*
+ *  张志成  2016-3-1
+ *  标题基础样式
+ */
+.title{
+	margin-top: 0.2rem;
+	width: 100%;
+	height: 0.74rem;
+	line-height: 0.74rem;
+	border-bottom: 1px solid #eee;
+
+	&:before{
+		content: '';
+		width: 0.08rem;
+		height: 100%;
+		background: #007cd5;
+		display: inline-block;
+		vertical-align: middle;
+		margin-top: -0.03rem;
+	}
+	h3{
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 0.2rem;
+		color: #007ddf;
+	}
+
+}
+.tit-detail{
+  margin-top: 0.2rem;
+  padding: 17px 12px;
+  .font(30);
+  color: @font-color;
+  background-color: @color-white;
+  height: 15px;
+
+  h3{
+  	float: left;
+  }
+  .ar-angle-right{
+    color: @font-lighter;
+  }
+  b{
+		color: #007dd4;
+		font-weight: 100;
+	}
+}
+
+
+
+/*
+*陈玉
+*页面布局
+*/
+/*图标div*/
+.header-icon-img{
+  width: 17px;
+  height: 15px;
+}
+.header-icon-a{
+  display: block;
+  width: 41px;
+  height: 44px;
+  line-height: 44px;
+}
+.rels-link{
+  font-size: 14px;
+  color: #fff;
+  position: absolute;
+  right: 41px;
+}
+.content-toggle{
+  display: none;
+  background-color: white;
+}
+
+/*内容部分的头部*/
+.content-nav{
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #eeeeee;
+}
+.content-title{
+  margin-left: 15px;
+  line-height: 50px;
+  font-size: 14px;
+  color: #999999;
+  width: 30%;
+  height: 100%;
+}
+/*//链接到用户区域*/
+.content-info{
+  float: right;
+  margin-right: 15px;
+  height: 50px;
+}
+/*//用户的文字区域*/
+.content-text{
+  line-height: 50px;
+  font-size: 13px;
+  color: #bbbbbb;
+  height: 50px;
+}
+.content-icon-goIn{
+  margin-top: 18px;
+  height: 14px;
+}
+.content-spacing{
+  display: inline-block;
+  width: 7px;
+  height: 11.5px;
+  background-image: url("http://img3.fdc.com.cn/m/images/icon/iconImg.png");
+  background-repeat: no-repeat;
+  background-position: 0 -513px;
+  background-size: 50px;
+}
+.content-list{
+  text-align: center;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid #eeeeee;
+}
+.content-list-function{
+  display: block;
+  float: left;
+  text-align: center;
+  width: 25%;
+  height: 100px;
+}
+/*定义一个模板*/
+.height-10{
+  height: 10px;
+  background-color: #eee;
+}
+.item(@x,@y){
+  margin: 20px auto 0px;
+  width: 50px;
+  height: 50px;
+  background-image: url("http://img3.fdc.com.cn/m/images/icon/iconImg.png");
+  background-repeat: no-repeat;
+  background-position: @x @y;
+  background-size: 50px;
+}
+.item-bbs(@x,@y){
+  .item(@x,@y);
+  background-image: url("http://img3.fdc.com.cn/m/images/icon/icon-bbs.png");
+}
+.content-list-fImg1{
+  .item(0,0);
+}
+.content-list-fImg2{
+  .item(0,-51px);
+}
+.content-list-fImg3{
+  .item(0,-102px);
+}
+.content-list-fImg4{
+  .item(0,-153px);
+}
+.content-list-fImg5{
+  .item(0,-204px);
+}
+.content-list-fImg6{
+  .item(0,-255px);
+}
+.content-list-fImg7{
+  .item(0,-306px);
+}
+.content-list-fImg8{
+    .item(0,-357px);
+}
+.content-list-fImg9{
+  .item(0,-408px);
+}
+.content-list-fImg10{
+  .item(0,-459px);
+}
+.content-list-fText{
+  margin-top: 5px;
+  height: 15px;
+}
+.content-list-fImg11{
+  .item-bbs(0,0);
+}
+.content-list-fImg12{
+  .item-bbs(0,-52px);
+}
+.content-list-fImg13{
+  .item-bbs(0,-104px);
+}
+.content-list-fImg14{
+  .item-bbs(0,-156px);
+}
+.content-list-fImg15{
+  .item-bbs(0,-208px);
+}
+.content-list-fImg16{
+  .item-bbs(0,-260px);
+}
+.content-list-fImg17{
+  .item-bbs(0,-312px);
+}
+.content-list-fImg18{
+  .item-bbs(0,-364px);
+}
+.content-list-fImg19{
+  .item-bbs(0,-416px);
+}
+.content-list-fImg20{
+  .item-bbs(0,-468px);
+}
+.content-list-fImg21{
+  .item-bbs(0,-520px);
+}
+.content-list-fImg22{
+  .item-bbs(0,-572px);
+}
+.content-list-fImg23{
+  .item-bbs(0,-624px);
+}
+

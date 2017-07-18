@@ -1,0 +1,149 @@
+ <div class="bmap">
+  <div class="bmap-title clearfix">
+    <h2 style="display: block; float: left;" class="titlename">周边配套地图</h2>
+  </div>
+  <div class="bmap-box">
+    <div id="bmap" data-city="武汉" data-lng="114.205976" data-lat="30.599699" data-title="美好名流汇" data-price="14000元/平米"></div>
+    <!-- <div id="bmap" data-city="武汉" data-lng="114.205976" data-lat="30.599699" data-title="美好名流汇" data-price="14000元/平米"></div> -->
+    <div class="search-box open">
+      <div class="in">
+        <!--<ul class="search-list" style="display:none">
+            <li><a href="javascript:;" class="i-1">周边楼盘</a></li>
+            <li><a href="javascript:;" class="i-2">交通</a></li>
+            <li><a href="javascript:;" class="i-3">娱乐</a></li>
+            <li><a href="javascript:;" class="i-4">超市</a></li>
+            <li><a href="javascript:;" class="i-5">餐饮</a></li>
+            <li><a href="javascript:;" class="i-6">银行</a></li>
+            <li><a href="javascript:;" class="i-7">医院</a></li>
+            <li onclick="fBMap.nearbySearch('公园','公园',true)"><a href="javascript:;" class="i-8">公园</a></li>
+            <li><a href="javascript:;" class="i-9">学校</a></li>
+        </ul>-->
+        <div class="search-result">
+          <div class="maptitle">
+            <div class="in">
+              <ul>
+                <li onclick="fBMap.nearbySearch(this,'交通',['地铁','公交','停车场','加油站'],true)">交通</li>
+                <li onclick="fBMap.nearbySearch(this,'娱乐',['KTV','酒吧','电影院','美容院','咖啡厅'],true)">娱乐</li>
+                <li onclick="fBMap.nearbySearch(this,'超市','超市',true)">超市</li>
+                <li onclick="fBMap.nearbySearch(this,'餐饮','餐饮',true)">餐饮</li>
+                <li onclick="fBMap.nearbySearch(this,'银行','银行',true)">银行</li>
+                <li onclick="fBMap.nearbySearch(this,'医院','医院',true)">医院</li>
+                <li onclick="fBMap.nearbySearch(this,'学校',['幼儿园','小学','中学','大学'],true)">学校</li>
+                <li onclick="fBMap.nearHouse(this)" class="set">周边楼盘</li>
+              </ul>
+              <!--<span>依山龙郡周边楼盘</span>
+              <a href="javascript:void(0)">返回</a>-->
+            </div>
+          </div>
+          <div class="con" id="resplane">
+            <ul class="map_ipt" style="display: block;">
+              <li><input type="text" class="ipt_txt" name="" id="sstartname" value="北大资源山水年华" onfocus="this.className='ipt_txt_focus';" onblur="this.className='ipt_txt';"></li>
+              <li><input type="text" class="ipt_txt" name="" id="sendname" value="请输入终点" onfocus="this.className='ipt_txt_focus';" onblur="this.className='ipt_txt';"></li>
+              <li><input type="button" class="ipt_btn" value="获取线路" onclick="fBMap.busClick();"></li>
+              <li class="change"><a href="javascript:void(0)" onclick="fBMap.busChang();"></a></li>
+            </ul>
+
+            <div id="00" class="mb10" style="display: none;">
+              <dt>住宅</dt>
+              <dd><a href="#" title="万龙中央公园" ><span class="d1">313米</span><span class="d2"><em>5000</em>元/平方米</span>万龙中央</a></dd>
+              <dd><a href="#" title="沁园首府"><span class="d1">598米</span><span class="d2"><em>4600</em>元/平方米</span>沁园首府</a></dd>
+              <dd><a href="#" title="大拇指广场"><span class="d1">689米</span><span class="d2"><em>4700</em>元/平方米</span>大拇指广</a></dd>
+              <dd><a href="#" title="万龙中央公园" ><span class="d1">313米</span><span class="d2"><em>5000</em>元/平方米</span>万龙中央</a></dd>
+              <dd><a href="#" title="沁园首府"><span class="d1">598米</span><span class="d2"><em>4600</em>元/平方米</span>沁园首府</a></dd>
+              <dd><a href="#" title="大拇指广场"><span class="d1">689米</span><span class="d2"><em>4700</em>元/平方米</span>大拇指广</a></dd>
+              <dd><a href="#" title="万龙中央公园" ><span class="d1">313米</span><span class="d2"><em>5000</em>元/平方米</span>万龙中央</a></dd>
+              <dd><a href="#" title="沁园首府"><span class="d1">598米</span><span class="d2"><em>4600</em>元/平方米</span>沁园首府</a></dd>
+              <dd><a href="#" title="大拇指广场"><span class="d1">689米</span><span class="d2"><em>4700</em>元/平方米</span>大拇指广</a></dd>
+              <dd><a href="#" title="万龙中央公园" ><span class="d1">313米</span><span class="d2"><em>5000</em>元/平方米</span>万龙中央</a></dd>
+              <dd><a href="#" title="沁园首府"><span class="d1">598米</span><span class="d2"><em>4600</em>元/平方米</span>沁园首府</a></dd>
+              <dd><a href="#" title="大拇指广场"><span class="d1">689米</span><span class="d2"><em>4700</em>元/平方米</span>大拇指广</a></dd>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="switch-btn" onclick="fBMap.toggleSearch()"></div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--周边搜索楼盘弹窗模板开始-->
+<script type="text/template" id="infowinmb">
+  <div class='ib_out' id='info{i}' index='{i}'>
+    <div class='ib_up'>
+      <div class='title'>
+        <a href='{titleurl}' target='_blank'>{title}</a><em>{status}</em>
+      </div>
+      <div class='content clearfix'>
+        <div class='left_box'>
+          <ul>
+            <li><span class='price'>{price}</span>元/平方米</li>
+            <li><span class='address'>位置：{address}</span></li>
+          </ul>
+        </div>
+        <div class='right_box'>
+          <a href='{titleurl}' target='_blank'><img src='{img}'></a>
+        </div>
+      </div>
+    </div>
+    <div class='ib_down'>
+      <ul class='clearfix'>
+        <li class='set0'><i class='i0'></i>到这里去</li>
+        <li><i class='i1'></i>从这里出发</li>
+        <li><i class='i2'></i>在附近找</li>
+      </ul>
+      <div class='inp'>
+        起点
+        <input type='text' class='inp_text'>
+        <span class='inp_submit' end='{title}' leibe='11'><a href='javascript:void(0)'>公交</a></span>
+        <span class='inp_submit' end='{title}' leibe='12'><a href='javascript:void(0)'>驾车</a></span>
+      </div>
+      <div class='inp' style='display: none;'>
+        终点
+        <input type='text' class='inp_text'>
+        <span class='inp_submit' start='{title}' leibe='21'><a href='javascript:void(0)'>公交</a></span>
+        <span class='inp_submit' start='{title}' leibe='22'><a href='javascript:void(0)'>驾车</a></span>
+      </div>
+      <div class='inp' style='display: none;'>
+        <a href='javascript:void(0)' onclick="fBMap.nearbySearch('','餐饮','餐饮',false,{lng},{lat},'{title}')">餐馆</a>
+        <a href='javascript:void(0)' onclick="fBMap.nearbySearch('','银行','银行',false,{lng},{lat},'{title}')">银行</a>
+        <a href='javascript:void(0)' onclick="fBMap.nearbySearch('','医院','医院',false,{lng},{lat},'{title}')">医院</a>
+        <a href='javascript:void(0)' onclick="fBMap.nearbySearch('','公交','公交',false,{lng},{lat},'{title}')">公交车</a>
+        <input type='text' class='inp_text2'>
+        <span class='inp_submit' leibe='31' lng='{lng}' lat='{lat}' title='{title}'><a href='javascript:void(0)'>查找</a></span>
+      </div>
+    </div>
+    <div class='fore'></div>
+    <div class='close'></div>
+  </div>
+</script>
+<!--周边搜索楼盘弹窗模板结束-->
+
+  <!--周边搜索弹窗模板2开始-->
+<script type="text/template" id="infowinmb2">
+  <div class='ib_out' id='info{i}' index='{i}'>
+    <div class='ib_up'>
+      <div class='title'>{title}</div>
+      <div class='content clearfix'>
+        地址：{address}<br>
+        电话：暂无
+      </div>
+    </div>
+    <div class='ib_down'>
+      <ul class="two">
+        <li class='set0'><i class='i0'></i>到这里去</li><li><i class='i1'>&nbsp;</i>从这里出发</li>
+      </ul>
+      <div class='inp'>
+        起点<input type='text' class='inp_text'><span class='inp_submit' end='{title}' leibe='11'><a href='javascript:void(0)'>公交</a></span><span class='inp_submit' end='{title}' leibe='12'><a href='javascript:void(0)'>驾车</a></span>
+      </div>
+      <div class='inp' style='display: none;'>
+        终点<input type='text' class='inp_text'><span class='inp_submit' start='{title}' leibe='21'><a href='javascript:void(0)'>公交</a></span><span class='inp_submit' start='{title}' leibe='22'><a href='javascript:void(0)'>驾车</a></span>
+      </div>
+    </div>
+    <div class='fore'></div>
+    <div class='close'></div>
+  </div>
+</script>
+<!--周边搜索弹窗模板结束-->
